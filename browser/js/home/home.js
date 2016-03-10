@@ -12,7 +12,7 @@ app.controller('homeCtrl',function($scope,localStorageFactory,CartFactory,AuthSe
 	// console.log("in homepage controller")
 
 	$scope.isLoggedIn = function () {
-	    return AuthService.isAuthenticated();
+		return AuthService.isAuthenticated();
 	};
 
 	function copyLocalCart() {

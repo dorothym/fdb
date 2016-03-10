@@ -1,14 +1,14 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
-            <h1>Sign up <span ng-if="isChef()">to Become a Chef</span></h1>
+            <h1>Upload a file</span></h1>
             
         </div>
     </div>
 </div>
 <div class="container">
-    <form id="signup-form" name="signupForm" ng-submit="sendsignup(signup)"> 
-        <!-- <form id="signup-form" name="signupForm" ng-submit="signupForm.$valid && sendsignup(signup)"> -->
+    <form id="upload-form" name="uploadForm" ng-submit="sendupload(upload)"> 
+        <!-- <form id="upload-form" name="uploadForm" ng-submit="uploadForm.$valid && sendupload(upload)"> -->
     <div class="row">
         <div class="pull-right corner">
             <img src="http://placehold.it/150x150" class="img-circle branding">
@@ -22,26 +22,16 @@
                 </div>
                 <div class="panel-body">
 
-                    <div class="col-lg-6" ng-show="!isChef()">
-                        <h5>Social signup:</h5>
-                        <a href="/auth/google" class="btn btn-block btn-social btn-google-plus">
-                            <i class="fa fa-google-plus"></i> Sign up with Google
-                        </a>
-                        <a class="btn btn-block btn-social btn-facebook">
-                            <i class="fa fa-facebook"></i> Sign up with Facebook
-                        </a>
-                    </div>
-
-                    <div class="col-lg-6">
-                        <h5 ng-show="!isChef()">Sign up with your email address:</h5>
+                    <div class="col-lg-12">
+                        <h5>Your information:</h5>
                             <div class="form-group">
                                 <label for="email">Email address</label>
-                                <input type="text" ng-model="signup.email" class="form-control" id="email" placeholder="Enter email">
+                                <input type="text" ng-model="upload.email" class="form-control" id="email" placeholder="Enter email">
                             </div>
 
                             <div class="form-group">
-                                <label for="signup-password">Password</label>
-                                <input type="password" ng-model="signup.password" class="form-control" id="signup-password" placeholder="Password">
+                                <label for="upload-username">Username</label>
+                                <input type="username" ng-model="upload.username" class="form-control" id="upload-username" placeholder="username">
                             </div>
                     </div>
 
@@ -50,7 +40,7 @@
 
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    User information:
+                    Song information:
                 </div>
                 <div class="panel-body">
 
@@ -66,18 +56,18 @@
 
 
                             <div class="form-group">
-                                <label for="firstName">First Name</label>
-                                <input type="text" ng-model="signup.firstName" class="form-control" id="firstName" placeholder="Enter first name">
+                                <label for="title">Track title</label>
+                                <input type="text" ng-model="upload.title" class="form-control" id="title" placeholder="Enter song title">
                             </div>
 
                             <div class="form-group">
                                 <label for="lastName">Last Name</label>
-                                <input type="text" ng-model="signup.lastName" class="form-control" id="lastName" placeholder="Enter last name">
+                                <input type="text" ng-model="upload.lastName" class="form-control" id="lastName" placeholder="Enter last name">
                             </div>
 
                             <div class="form-group">
                                 <label for="phoneNumber">Phone number</label>
-                                <input type="text" ng-model="signup.phoneNumber" class="form-control" id="phoneNumber" placeholder="Enter phone number">
+                                <input type="text" ng-model="upload.phoneNumber" class="form-control" id="phoneNumber" placeholder="Enter phone number">
                             </div>
 
                         </div>
@@ -86,17 +76,17 @@
 
                             <div class="form-group">
                                 <label for="homeAddress">Home address</label>
-                                <input type="text" ng-model="signup.homeAddress" class="form-control" id="homeAddress" placeholder="Enter home address">
+                                <input type="text" ng-model="upload.homeAddress" class="form-control" id="homeAddress" placeholder="Enter home address">
                             </div>
 
                             <div class="form-group">
                                 <label for="zip">Zip code</label>
-                                <input type="text" ng-model="signup.zip" class="form-control" id="zip" placeholder="Enter zip code">
+                                <input type="text" ng-model="upload.zip" class="form-control" id="zip" placeholder="Enter zip code">
                             </div>
 
                             <div class="form-group">
                                 <label for="borough">Borough</label>
-                                <select ng-model="signup.borough" class="form-control" id="borough" placeholder="Select borough">
+                                <select ng-model="upload.borough" class="form-control" id="borough" placeholder="Select borough">
                                 <option value="Queens">Queens</option>
                                 <option value="Brooklyn">Brooklyn</option>
                                 <option value="Bronx">Bronx</option>
@@ -114,7 +104,7 @@
 
             <div class="panel panel-default" ng-show="{{showChef}}">
                 <div class="panel-heading">
-                    Chef information:
+                    Musician information:
                 </div>
                 <div class="panel-body">
 
@@ -126,12 +116,12 @@
                     
                         <div class="form-group">
                             <label for="picture">Photo URL:</label>
-                            <input type="text" ng-model="signup.picture" class="form-control" id="picture" placeholder="Enter URL beginning with http://">
+                            <input type="text" ng-model="upload.picture" class="form-control" id="picture" placeholder="Enter URL beginning with http://">
                         </div>
 
                         <div class="form-group">
                             <label for="cuisine">Cuisine specialty:</label>
-                            <select ng-model="signup.specialty" class="form-control" id="picture" placeholder="Select cuisine specialty">
+                            <select ng-model="upload.specialty" class="form-control" id="picture" placeholder="Select cuisine specialty">
                                 <option ng-repeat="cuisine in cuisines" value="{{cuisine}}">{{cuisine}}</option>
 
                             </select>
@@ -142,7 +132,7 @@
 
                         <div class="form-group">
                             <label for="bio">Bio:</label>
-                            <textarea rows="4" ng-model="signup.bio" class="form-control" id="bio" placeholder="Enter bio"></textarea>
+                            <textarea rows="4" ng-model="upload.bio" class="form-control" id="bio" placeholder="Enter bio"></textarea>
                         </div>
 
                     </div>

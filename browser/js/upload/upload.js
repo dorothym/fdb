@@ -1,54 +1,34 @@
 app.config(function ($stateProvider) {
 
-    $stateProvider.state('signup', {
-        url: '/signup',
-        templateUrl: 'js/signup/signup.html',
-        controller: 'SignupCtrl'
+    $stateProvider.state('upload', {
+        url: '/upload',
+        templateUrl: 'js/upload/upload.html',
+        controller: 'UploadCtrl'
     });
 
 });
 
-// app.controller('SignupCtrl', function ($scope, AuthService, $state, $http, $stateParams,localStorageFactory, CartFactory) {
-app.controller('SignupCtrl', function ($scope, AuthService, $state, $http, $stateParams,localStorageFactory) {
+// app.controller('uploadCtrl', function ($scope, AuthService, $state, $http, $stateParams,localStorageFactory, CartFactory) {
+// app.controller('UploadCtrl', function ($scope, AuthService, $state, $http, $stateParams) {
+    // app.controller('UploadCtrl', function ($scope, AuthService, $state, $http) {
+
+app.controller('UploadCtrl', function ($scope, AuthService) {
 
     // $scope.cuisines = ['Italian','Indian','French', 'Mediterrenean', 'Brazilian', 'Thai','New American','Chinese','Japanese','Vietnamese','Mexican','Peruvian','Food truck','Sandwiches','Pub food', 'Spanish'];
 
     $scope.log = function() {
-        // SignupFactory.signup()
+        // uploadFactory.upload()
     }
     $scope.successmessage = null;
     
 
     // console.log("stateparams:",$stateParams)
 
-    $scope.signup = {};
+    $scope.upload = {};
+    // $scope.error = null;
     $scope.error = null;
 
-    // $scope.showChef = $stateParams.isChef;
-    // console.log("is chef =",$scope.showChef)
 
-    var postRoute;
-    // if($scope.showChef == "true") {
-    //     postRoute = 'api/chefs';
-    // }
-    // else {
-        postRoute = 'api/users';
-    // }
-
-
-    $scope.sendsignup = function (signupInfo) {
-        // console.log("inside signup. postroute is",postRoute)
-        return $http.post(postRoute, signupInfo)
-        .then(function(newUser) {
-                $state.go('login',{
-                    successmessage: 'Successful signup! Please log in.'
-                });
-            })
-            .catch(function (err) {
-                // console.log('err after all ', err)
-                $scope.error = 'Invalid signup credentials.'
-            });
-    }
 
     $scope.isLoggedIn = function () {
         return AuthService.isAuthenticated();

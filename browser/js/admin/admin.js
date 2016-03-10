@@ -56,7 +56,7 @@ app.controller('AdminCtrl', function ($scope, AuthService, $state, allUsers, Adm
         .then(function() {
             if(!user.admin) {
                 $scope.action = "removed as an admin";
-            } else  {
+            } else {
                 $scope.action = "assigned as an admin";
             }     
         })
