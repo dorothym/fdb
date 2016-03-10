@@ -52,3 +52,11 @@ img {
 /* red: b32428;
 light blue: 65c9c8;
 */
+
+/* filestack */
+.fp__btn {
+	background-color: blue !important;
+	&:hover {
+		background-color: purple !important;
+	}
+}

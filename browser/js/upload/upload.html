@@ -52,9 +52,10 @@
                             <alert type="success" ng-show="error">
                                 {{successmessage}}
                             </alert>
-<script type="text/javascript" src="//api.filepicker.io/v2/filepicker.js"></script>
 
-<input type="filepicker" data-fp-apikey="AncywxfcpTDiis3bzOf9Cz" data-fp-mimetypes="audio/*" data-fp-container="modal" data-fp-store-location="s3" data-fp-services="COMPUTER" onchange="alert(event.fpfile.url)">
+                            <h5>Filestack File Picker</h5>
+                            <input type="filepicker" data-fp-apikey="AncywxfcpTDiis3bzOf9Cz" data-fp-mimetypes="audio/*" data-fp-container="window" data-fp-store-location="s3" data-fp-services="COMPUTER" onchange="alert(event.fpfile.url)">
+
                             <div class="form-group">
                                 <label>File to upload:</label>
                                 <input type="file">
