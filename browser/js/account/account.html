@@ -1,0 +1,266 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1>My Account</h1>
+<!--             <small>Welcome, {{user.firstName}}!</small> -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3>Account information </h3>
+                </div>
+                <div class="panel-body">
+	                <div class="form-group">
+	                    <label>Your name:</label>
+	                    <p class="form-control-static">{{user.firstName}} {{user.lastName}}</p>
+	                </div>
+	                <div class="form-group">
+	                    <label>Your email:</label>
+	                    <p class="form-control-static">{{user.email}}</p>
+	                </div>
+	                <div class="form-group">
+	                    <label>User ID:</label>
+	                    <p class="form-control-static">{{user._id}}</p>
+	                </div>	                
+	                <div class="form-group">
+	                    <label>Address</label>
+	                    <p class="form-control-static">{{user.homeAddress}}</p>
+	                </div>
+	                <div class="form-group">
+	                    <label>Phone number</label>
+	                    <p class="form-control-static">{{user.phoneNumber}}</p>
+	                </div>	
+	                <div ng-if="isChef()" class="form-group">
+	                    <label>Cuisine specialty</label>
+	                    <p class="form-control-static">{{user.specialty}}</p>
+	                </div>	
+	                <div ng-if="isChef()" class="form-group">
+	                    <label>Bio</label>
+	                    <p class="form-control-static">{{user.bio}}</p>
+	                </div>	   
+	                <div ng-if="isChef()" class="form-group">
+	                    <label>Picture</label>
+	                    <div><img width="325" ng-src={{user.picture}}></div>
+	                </div>             		                                		                
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-8">
+        	<div class="panel panel-default">
+	        	<div class="panel-heading"><h3>Your Transactions</h3></div>
+	        	<div class="panel-body" ng-repeat="transaction in allTransactions | orderBy: ['status', '-date']">
+	        		<h4>Order date: {{transaction.date | date }}</h4>
+	        		<h4>Status: {{transaction.status }}</h4>
+	                <div class="table-responsive table-bordered">
+	                    <table class="table">
+	                        <thead>
+	                            <tr>
+	                                <th>Meal</th>
+	                                <th>Price</th>
+	                            </tr>
+	                        </thead>
+	                        <tbody>
+	                            <tr ng-repeat="meal in transaction.meals">
+		                            <td><a ui-sref="meal({id: meal._id})"> {{meal.name}}</a></td>
+	                                <td>{{meal.price | currency }}</td>
+                                    <td><button type="submit" class="btn btn-default btn-primary" ng-show="isRatable(transaction.status, meal._id)" ui-sref="addRating({id: meal._id})">Rate this meal!</button></td>
+                                    <td ng-show="!isRatable(transaction.status, meal._id) && transaction.status==='Delivered'">You already gave this a {{ratingNum(meal._id)}} star rating!</td>
+	                            </tr>
+	                        </tbody>
+	                    </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </div> <!-- close row -->
+
+        <div class="row" ng-show="isChef()">
+
+	        <div class="col-lg-12">
+	        	<div class="panel panel-default">
+		        	<div class="panel-heading"><h3>Add a new meal</h3></div>
+		        	<div class="panel-body" >
+
+		                <form ng-submit="addMeal(newMeal)">
+
+		                <div class="row">
+			                <div class="col-lg-4">
+								<div class="form-group">
+		                            <label for="chefmeal">Meal Name</label>
+		                            <input class="form-control" placeholder="Enter meal name" ng-model="newMeal.name">
+		                        </div>
+		                    </div>
+		                    <div class="col-lg-4">
+								<div class="form-group">
+		                            <label for="chefmeal">Cuisine</label>
+		                            <!-- <input class="form-control" placeholder="Enter meal name" ng-model="newMeal.cuisine"> -->
+		                            <select class="form-control"  ng-model="newMeal.cuisine">
+				                    <option ng-repeat="i in allCuisines">{{i}}</option>
+				                </select>
+		                        </div>
+		                    </div>
+			                <div class="col-lg-4">
+								<div class="form-group">
+		                            <label for="chefmeal">Meal Photo</label>
+		                            <input class="form-control" placeholder="Enter meal URL, beginning with http://" ng-model="newMeal.photo">
+		                        </div>
+		                    </div>
+
+		                    <div class="col-lg-2">
+		                       <div class="form-group">
+		                            <label for="chefmeal">Qty Avail.</label>
+		                            <input class="form-control" placeholder="Enter quantity available" ng-model="newMeal.quantity">
+		                        </div>
+		                    </div>
+
+		                    <div class="col-lg-2">
+		                       <div class="form-group">
+		                            <label for="chefmeal">Servings</label>
+		                            <input class="form-control" placeholder="Enter quantity available" ng-model="newMeal.servings">
+		                        </div>
+		                    </div>
+
+		                    <div class="col-lg-2">
+		                        <div class="form-group">
+		                            <label for="chefmeal">Price</label>
+		                            <input class="form-control" placeholder="Enter price" ng-model="newMeal.price">
+		                        </div>
+		                    </div>
+	                    </div>
+		                <div class="row">
+		                    <div class="col-lg-12">
+		                        <div class="form-group">
+		                            <label for="chefmeal">Meal Description</label>
+		                            <textarea class="form-control" rows="4" placeholder="Enter description" ng-model="newMeal.description"></textarea>
+		                        </div>
+	                        </div>
+	                    </div>
+
+						<button type="submit" class="btn btn-default btn-primary">Add meal</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	<div class="row" ng-show="isChef()">
+	        <div class="col-lg-12">
+	        	<div class="panel panel-default">
+		        	<div class="panel-heading"><h3>Edit Or Remove an Existing Meal</h3></div>
+		        	<div class="panel-body">
+						  <uib-accordion close-others="oneAtATime">
+						    <uib-accordion-group ng-repeat="meal in allMyMeals" heading="{{meal.name}}">
+
+							    <form>
+							    	<div class="row">
+							            <div class="col-lg-4">
+											<div class="form-group">
+							                    <label for="chefmeal" >Meal Name</label>
+							                    <input class="form-control" placeholder="{{meal.name}}" ng-model="meal.name">
+							                </div>
+							            </div>
+
+									<div class="col-lg-4">
+										<div class="form-group">
+				                            <label for="chefmeal">Cuisine</label>
+				                            <select class="form-control"  ng-model="meal.cuisine">
+						                    <option ng-repeat="i in allCuisines">{{i}}</option>
+						                </select>
+				                        </div>
+				                    </div>
+							            <div class="col-lg-4">
+											<div class="form-group">
+							                    <label for="chefmeal">Meal Photo</label>
+							                    <input class="form-control" placeholder="{{meal.photo}}" ng-model="meal.photo">
+							                </div>
+							            </div>
+
+							            <div class="col-lg-2">
+							               <div class="form-group">
+							                    <label for="chefmeal">Qty Avail.</label>
+							                    <input class="form-control" placeholder="{{meal.quantity}}"  ng-model="meal.quantity">
+							                </div>
+							            </div>
+
+							            <div class="col-lg-2">
+							               <div class="form-group">
+							                    <label for="chefmeal">Servings</label>
+							                    <input class="form-control" placeholder="{{meal.servings}}" ng-model="meal.servings">
+							                </div>
+							            </div>
+
+
+							            <div class="col-lg-2">
+							                <div class="form-group">
+							                    <label for="chefmeal">Price</label>
+							                    <input class="form-control" placeholder="{{meal.price}}" ng-model="meal.price">
+							                </div>
+							            </div>
+							        </div>
+
+							        <div class="row">
+							            <div class="col-lg-12">
+							                <div class="form-group">
+							                    <label for="chefmeal">Meal Description</label>
+							                    <textarea class="form-control" rows="{{meal.description}}" ng-model="meal.description">Insert text from DB here</textarea>
+							                </div>
+							            </div>
+							        </div>
+									<button type="submit" class="btn btn-success"  ng-click="updateMeal(meal)">Update meal</button>
+									<button type="submit" class="btn btn-danger" ng-click="removeMeal(meal)">Delete meal</button>
+								</form>
+						    </uib-accordion-group>					    
+						  </uib-accordion>
+  	            </div>
+	        </div>
+	    </div>
+    </div>
+  <div class="row">
+
+
+
+
+
+
+
+
+	        <div class="col-lg-12">
+	        	<div class="panel panel-default">
+		        	<div class="panel-heading"><h3>Show All Ratings</h3></div>
+		        	<div class="panel-body" >
+
+		                <form>
+                          <div class="table-responsive table-bordered">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Meal</th>
+                                        <th>Rating</th>
+                                        <th>Rating Text</th>
+                                        <th>Date Rated</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="rating in allRatings | orderBy: '-date'">
+                                        <td><a ui-sref="meal({id: rating.meal._id})"> {{rating.meal.name}}</a></td>
+                                        <td>{{ rating.rating }}</td>
+                                        <td>{{ rating.ratingText }}</td>
+                                        <td>{{ rating.date | date }}</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+</div>
