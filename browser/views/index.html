@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base href="/" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Feed Me! Meal Exchange Community</title>
+
+    <link rel="stylesheet" type="text/css" href="/bootstrap/dist/css/bootstrap.css" />
+
+    <!-- jQuery as specified by StartBootstrap theme -->
+    <script src="js/startbootstrap/jquery.js"></script>
+
+    <!-- Bootstrap JS is required by by StartBoostrap theme -->
+    <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <!-- FSG files --> 
+    <script src="/lodash/index.js"></script>
+    <script src="/angular/angular.js"></script>
+    <script src="/angular-animate/angular-animate.js"></script>
+    <script src="/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="/angular-ui-bootstrap/ui-bootstrap.js"></script>
+    <script src="/angular-ui-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="/angular-payments/lib/angular-payments.js"></script>
+    <script src="/socket.io-client/socket.io.js"></script>
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <script type="text/javascript">Stripe.setPublishableKey('pk_test_6pRNASCoBOKtIshFeQd4XMUh')</script>
+    <script src="/angular-local-storage/dist/angular-local-storage.js"></script>
+    <script src="/main.js"></script>
+
+    <!-- FSG Gulped CSS file -->
+
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+   
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body ng-app="FullstackGeneratedApp"> <!-- from FSG -->
+    
+<navbar></navbar> <!-- see navbar directive: browser > js > common > directives > navbar -->
+
+    <!-- from FSG -->
+    <div id="main" ui-view> 
+
+    </div> <!-- // end #main -->
+
+
+    <!-- Footer from FSG -->
+    <div class="container">
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Generated at Fullstack / Grace Hopper</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+
+
+
+</body>
+
+</html>
