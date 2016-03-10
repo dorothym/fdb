@@ -7,7 +7,8 @@ app.config(function ($stateProvider) {
     });
 });
 
-app.controller('homeCtrl',function($scope,localStorageFactory,CartFactory,AuthService) {
+// app.controller('homeCtrl',function($scope,localStorageFactory,CartFactory,AuthService) {
+app.controller('homeCtrl',function($scope,AuthService) {
 
 	// console.log("in homepage controller")
 
@@ -15,25 +16,25 @@ app.controller('homeCtrl',function($scope,localStorageFactory,CartFactory,AuthSe
 		return AuthService.isAuthenticated();
 	};
 
-	function copyLocalCart() {
+	// function copyLocalCart() {
 
-		// if we have not already checked for locally stored cart
-		// and if user is not authenticated, copy locally stored cart to cached cart
+	// 	// if we have not already checked for locally stored cart
+	// 	// and if user is not authenticated, copy locally stored cart to cached cart
 		
-		if(!localStorageFactory.alreadyFetchedLocalCart && !$scope.isLoggedIn() && localStorageFactory.getLocalCart().length > 0) {
-			CartFactory.copyCartFromLocalStorage(localStorageFactory.getLocalCart());
-			// console.log("just copied cart from local to cache",localStorageFactory.getLocalCart());
-		}
-		else if ($scope.isLoggedIn()) {
-			// console.log("user is logged in. will not populate cache from local cart");
-		}
-		else {
-			// console.log("already checked for local cart");
-		}
+	// 	if(!localStorageFactory.alreadyFetchedLocalCart && !$scope.isLoggedIn() && localStorageFactory.getLocalCart().length > 0) {
+	// 		CartFactory.copyCartFromLocalStorage(localStorageFactory.getLocalCart());
+	// 		// console.log("just copied cart from local to cache",localStorageFactory.getLocalCart());
+	// 	}
+	// 	else if ($scope.isLoggedIn()) {
+	// 		// console.log("user is logged in. will not populate cache from local cart");
+	// 	}
+	// 	else {
+	// 		// console.log("already checked for local cart");
+	// 	}
 
-	}
+	// }
 
-	copyLocalCart();
+	// copyLocalCart();
 
  
 });
