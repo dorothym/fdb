@@ -33,6 +33,12 @@
     <script src="/socket.io-client/socket.io.js"></script>
     <!-- <script src="/angular-local-storage/dist/angular-local-storage.js"></script> -->
 
+<!--     <script type="text/javascript" src="//api.filestackapi.com/filestack.js"></script> -->
+
+<script type="text/javascript">
+(function(a){if(window.filepicker){return}var b=a.createElement("script");b.type="text/javascript";b.async=!0;b.src=("https:"===a.location.protocol?"https:":"http:")+"//api.filestackapi.com/filestack.js";var c=a.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c);var d={};d._queue=[];var e="pick,pickMultiple,pickAndStore,read,write,writeUrl,export,convert,store,storeUrl,remove,stat,setKey,constructWidget,makeDropPane".split(",");var f=function(a,b){return function(){b.push([a,arguments])}};for(var g=0;g<e.length;g++){d[e[g]]=f(e[g],d._queue)}window.filepicker=d})(document);
+</script>
+
 <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,700,500' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Lora:400,700' rel='stylesheet' type='text/css'>
 
@@ -41,7 +47,7 @@
     <!-- FSG Gulped CSS file -->
 
     <link rel="stylesheet" type="text/css" href="/style.css" />
-    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+
    
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -78,13 +84,13 @@
     <!-- FILESTACK -->
 <!--     <script type="text/javascript" src="//api.filestackapi.com/filestack.js"></script>
     <input type="filepicker" data-fp-apikey="AncywxfcpTDiis3bzOf9Cz" data-fp-mimetypes="audio/*" data-fp-container="window" data-fp-store-location="s3" data-fp-services="COMPUTER" onchange="alert(event.fpfile.url)"> -->
-<script type="text/javascript" src="//api.filestackapi.com/filestack.js"></script>
+<!-- <script type="text/javascript" src="//api.filestackapi.com/filestack.js"></script> -->
 
 <!-- <input type="filepicker" data-fp-apikey="AncywxfcpTDiis3bzOf9Cz"
 onchange="alert(event.fpfile.url)">
  -->
 
-<input type="filepicker" data-fp-apikey="AncywxfcpTDiis3bzOf9Cz" data-fp-mimetypes="audio/*" data-fp-container="window" data-fp-store-location="s3" data-fp-services="COMPUTER" onchange="alert(event.fpfile.url)">
+<!-- <input type="filepicker" data-fp-apikey="AncywxfcpTDiis3bzOf9Cz" data-fp-mimetypes="audio/*" data-fp-container="window" data-fp-store-location="s3" data-fp-services="COMPUTER" onchange="alert(event.fpfile.url)"> -->
 
 
     <!-- END FILESTACK -->

@@ -16,6 +16,8 @@ app.controller('UploadCtrl', function ($scope, AuthService) {
 
     // $scope.cuisines = ['Italian','Indian','French', 'Mediterrenean', 'Brazilian', 'Thai','New American','Chinese','Japanese','Vietnamese','Mexican','Peruvian','Food truck','Sandwiches','Pub food', 'Spanish'];
 
+    $scope.fileUrl = "";
+
     $scope.log = function() {
         // uploadFactory.upload()
     }
@@ -28,6 +30,10 @@ app.controller('UploadCtrl', function ($scope, AuthService) {
     // $scope.error = null;
     $scope.error = null;
 
+    $scope.getFileUrl = function(myUrl) {
+        $scope.fileUrl = myUrl;
+        console.log("fileUrl is now", $scope.fileUrl)
+    }
 
 
     $scope.isLoggedIn = function () {
