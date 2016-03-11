@@ -1,18 +1,18 @@
 <!-- Page Content -->
 <div class="container">
-    <h1>{{ song.name }}</h1>
+    <h1>{{ file.name }}</h1>
     </div>
     <div class="container">
 
         <div class="row">
 
             <div class="col-md-3">
-                <p class="lead">${{ song.price }}.00</p>
+                <p class="lead">${{ file.price }}.00</p>
                 <div class="well">
                     <h4>Cuisine</h4>
 
                         <p>
-                          <a ui-sref="songs">{{ song.cuisine }}</a>
+                          <a ui-sref="files">{{ file.cuisine }}</a>
                   
                         </p>
                       
@@ -22,15 +22,15 @@
             <div class="col-md-9">
 
                 <div class="thumbnail">
-                    <img class="img-responsive" src="{{song.photo}}" alt="">
+                    <img class="img-responsive" src="{{file.photo}}" alt="">
                     <div class="panel-body">
-                        <h4 class="pull-right">${{ song.price }}.00</h4>
+                        <h4 class="pull-right">${{ file.price }}.00</h4>
                         <h4>Chef: <a ui-sref="chef({id: chef._id})">{{ chef.firstName }} {{ chef.lastName }}</a>
                         </h4>
-                        <p>{{ song.description }}</p>
-                        <h5>Servings: {{ song.servings }}</h5>
+                        <p>{{ file.description }}</p>
+                        <h5>Servings: {{ file.servings }}</h5>
                         <div class="panel-body">
-                           <a class="btn btn-primary" target="_blank" ng-click="addsong(song)">Add to Cart</a>
+                           <a class="btn btn-primary" target="_blank" ng-click="addfile(file)">Add to Cart</a>
                         </div>
                     </div>
 
@@ -46,7 +46,7 @@
                 <div class="well">
 
                     <div class="text-left">
-                        <h3>song reviews</h3>
+                        <h3>file reviews</h3>
                     </div>
 
                     <hr>

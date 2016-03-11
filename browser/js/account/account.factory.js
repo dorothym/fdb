@@ -1,6 +1,6 @@
 'use-strict'
 
-app.factory('AccountFactory', function($http,ChefFactory,$q) {
+app.factory('AccountFactory', function($http) {
 	var AccountFactory = {};
 
 	var allTransactions = [];
@@ -16,26 +16,26 @@ app.factory('AccountFactory', function($http,ChefFactory,$q) {
 		return cache[obj.type]; 
 	}
   
-    AccountFactory.getAllRatings = function(userId){
-      return $http.get('/api/ratings?&author=' + userId)
-      .then(function (response){
-        return {type: 'Ratings', data: response.data}
-      })
-      .then(setCache)
-    }
+ //    AccountFactory.getAllRatings = function(userId){
+ //      return $http.get('/api/ratings?&author=' + userId)
+ //      .then(function (response){
+ //        return {type: 'Ratings', data: response.data}
+ //      })
+ //      .then(setCache)
+ //    }
     
-    AccountFactory.addToRatingsCache = function(data){
-      cache.Ratings.push(data);
-    }
+ //    AccountFactory.addToRatingsCache = function(data){
+ //      cache.Ratings.push(data);
+ //    }
 
-	AccountFactory.fetchAllTransactions = function(userId) {
-		return $http.get('/api/users/' + userId + '/transaction')
-		.then(function (response) {
-			return {type: 'Transactions', data: response.data };
-		})
-		.then(setCache)
+	// AccountFactory.fetchAllTransactions = function(userId) {
+	// 	return $http.get('/api/users/' + userId + '/transaction')
+	// 	.then(function (response) {
+	// 		return {type: 'Transactions', data: response.data };
+	// 	})
+	// 	.then(setCache)
 
-	}
+	// }
 
 /*
 			// work in progress

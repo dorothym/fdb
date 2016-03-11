@@ -64,7 +64,7 @@ app.controller('AccountCtrl', function($scope, $rootScope, AuthService, allTrans
       })[0].rating;
     }
 
-    $scope.isAdmin =  function() {
+    $scope.isAdmin = function() {
         return $scope.user.admin;
     }
 

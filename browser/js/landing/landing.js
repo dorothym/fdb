@@ -1,6 +1,6 @@
 app.config(function ($stateProvider) {
     $stateProvider.state('landing', {
-        url: '/',
+        url: '/landing',
         templateUrl: 'js/landing/landing.html',
         controller: 'landingCtrl'
 
@@ -12,7 +12,7 @@ app.controller('landingCtrl',function($scope,AuthService) {
 	// console.log("in landing page controller")
 
 	$scope.isLoggedIn = function () {
-	    return AuthService.isAuthenticated();
+		return AuthService.isAuthenticated();
 	};
 
 	// function copyLocalCart() {

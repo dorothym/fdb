@@ -1,14 +1,14 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
-            <h1>Sign up <span ng-if="isChef()">to Become a Chef</span></h1>
+            <h1>Upload a file</span></h1>
             
         </div>
     </div>
 </div>
 <div class="container">
-    <form id="signup-form" name="signupForm" ng-submit="sendsignup(signup)"> 
-        <!-- <form id="signup-form" name="signupForm" ng-submit="signupForm.$valid && sendsignup(signup)"> -->
+    <form id="upload-form" name="uploadForm" ng-submit="sendupload(upload)"> 
+        <!-- <form id="upload-form" name="uploadForm" ng-submit="uploadForm.$valid && sendupload(upload)"> -->
     <div class="row">
         <div class="pull-right corner">
             <img src="http://placehold.it/150x150" class="img-circle branding">
@@ -18,30 +18,19 @@
 
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Login Details:
+                    Your user information:
                 </div>
                 <div class="panel-body">
 
-                    <div class="col-lg-6" ng-show="!isChef()">
-                        <h5>Social signup:</h5>
-                        <a href="/auth/google" class="btn btn-block btn-social btn-google-plus">
-                            <i class="fa fa-google-plus"></i> Sign up with Google
-                        </a>
-                        <a class="btn btn-block btn-social btn-facebook">
-                            <i class="fa fa-facebook"></i> Sign up with Facebook
-                        </a>
-                    </div>
-
-                    <div class="col-lg-6">
-                        <h5 ng-show="!isChef()">Sign up with your email address:</h5>
+                    <div class="col-lg-12">
                             <div class="form-group">
                                 <label for="email">Email address</label>
-                                <input type="text" ng-model="signup.email" class="form-control" id="email" placeholder="Enter email">
+                                <input type="text" ng-model="upload.email" class="form-control" id="email" placeholder="Enter email">
                             </div>
 
                             <div class="form-group">
-                                <label for="signup-password">Password</label>
-                                <input type="password" ng-model="signup.password" class="form-control" id="signup-password" placeholder="Password">
+                                <label for="upload-username">Username</label>
+                                <input type="username" ng-model="upload.username" class="form-control" id="upload-username" placeholder="username">
                             </div>
                     </div>
 
@@ -50,7 +39,7 @@
 
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    User information:
+                    Song information:
                 </div>
                 <div class="panel-body">
 
@@ -64,85 +53,94 @@
                                 {{successmessage}}
                             </alert>
 
+                            <h5>Filestack File Picker</h5>
+                            <input type="filepicker" data-fp-apikey="AncywxfcpTDiis3bzOf9Cz" data-fp-mimetypes="audio/*" data-fp-container="window" data-fp-store-location="s3" data-fp-services="COMPUTER" onchange="alert(event.fpfile.url)">
 
                             <div class="form-group">
-                                <label for="firstName">First Name</label>
-                                <input type="text" ng-model="signup.firstName" class="form-control" id="firstName" placeholder="Enter first name">
+                                <label>File to upload:</label>
+                                <input type="file">
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width:20%">
+                                <span class="sr-only">20% Complete</span> 
+                                </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="lastName">Last Name</label>
-                                <input type="text" ng-model="signup.lastName" class="form-control" id="lastName" placeholder="Enter last name">
+                                <label for="title">Track title</label>
+                                <input type="text" ng-model="upload.title" class="form-control" id="title" placeholder="Enter song title">
                             </div>
 
                             <div class="form-group">
-                                <label for="phoneNumber">Phone number</label>
-                                <input type="text" ng-model="signup.phoneNumber" class="form-control" id="phoneNumber" placeholder="Enter phone number">
+                                <label for="artist">Performer</label>
+                                <input type="text" ng-model="upload.artist" class="form-control" id="artist" placeholder="Enter artist name">
                             </div>
-
-                        </div>
-
-                        <div class="col-lg-6">
-
                             <div class="form-group">
-                                <label for="homeAddress">Home address</label>
-                                <input type="text" ng-model="signup.homeAddress" class="form-control" id="homeAddress" placeholder="Enter home address">
+                                <button type="submit" class="btn btn-primary">Add Another Performer</button>
                             </div>
 
                             <div class="form-group">
+                                <label for="album">Album, Concert, Festival, or Event</label>
+                                <input type="text" ng-model="upload.album" class="form-control" id="album" placeholder="">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="source">Original source or Composer</label>
+                                <input type="text" ng-model="upload.source" class="form-control" id="source" placeholder="Enter home address">
+                            </div>
+
+<!--                             <div class="form-group">
                                 <label for="zip">Zip code</label>
-                                <input type="text" ng-model="signup.zip" class="form-control" id="zip" placeholder="Enter zip code">
-                            </div>
+                                <input type="text" ng-model="upload.zip" class="form-control" id="zip" placeholder="Enter zip code">
+                            </div> -->
 
                             <div class="form-group">
-                                <label for="borough">Borough</label>
-                                <select ng-model="signup.borough" class="form-control" id="borough" placeholder="Select borough">
-                                <option value="Queens">Queens</option>
-                                <option value="Brooklyn">Brooklyn</option>
-                                <option value="Bronx">Bronx</option>
-                                <option value="StatenIsland">Staten Island</option>
-                                <option value="Manhattan">Manhattan</option>
-                                </select>
+                                <label for="date">Date recorded</label>
+                                    <select ng-model="upload.date.month" class="form-control" id="month" placeholder="Select month">
+                                    <option value="January">January</option>
+                                    <option value="February">February</option>
+                                    <option value="March">March</option>
+                                    <option value="April">April</option>
+                                    <option value="May">May</option>
+                                    </select>
+
+
+
+                                    <select ng-model="upload.date.day" class="form-control" id="day" placeholder="Select day">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    </select>
+
+                                    <select ng-model="upload.date.year" class="form-control" id="year" placeholder="Select year">
+
+                                    <option value="2012">2012</option>
+                                    <option value="2013">2013</option>
+                                    <option value="2014">2014</option>
+                                    <option value="2015">2015</option>
+                                    <option value="2016">2016</option>
+                                    </select>
                             </div>
-
-
-                        </div>       
-                    
-                </div>
-            </div>
-
-
-            <div class="panel panel-default" ng-show="{{showChef}}">
-                <div class="panel-heading">
-                    Chef information:
-                </div>
-                <div class="panel-body">
-
-                    <alert type="danger" ng-show="error">
-                        {{ error }}
-                    </alert>
-
-                    <div class="col-lg-6">
                     
                         <div class="form-group">
-                            <label for="picture">Photo URL:</label>
-                            <input type="text" ng-model="signup.picture" class="form-control" id="picture" placeholder="Enter URL beginning with http://">
+                            <label for="picture">Image URL:</label>
+                            <input type="text" ng-model="upload.picture" class="form-control" id="picture" placeholder="Enter URL beginning with http://">
                         </div>
 
                         <div class="form-group">
-                            <label for="cuisine">Cuisine specialty:</label>
-                            <select ng-model="signup.specialty" class="form-control" id="picture" placeholder="Select cuisine specialty">
+                            <label for="cuisine">Genre:</label>
+                            <select ng-model="upload.specialty" class="form-control" id="picture" placeholder="Select cuisine specialty">
                                 <option ng-repeat="cuisine in cuisines" value="{{cuisine}}">{{cuisine}}</option>
 
                             </select>
                         </div>
 
-                    </div>
-                    <div class="col-lg-6">
-
                         <div class="form-group">
-                            <label for="bio">Bio:</label>
-                            <textarea rows="4" ng-model="signup.bio" class="form-control" id="bio" placeholder="Enter bio"></textarea>
+                            <label for="description">Description</label>
+                            <textarea rows="4" ng-model="upload.description" class="form-control" id="description" placeholder="Enter description"></textarea>
                         </div>
 
                     </div>

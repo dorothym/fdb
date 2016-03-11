@@ -1,17 +1,18 @@
-// app.controller('MealController', function ($scope, meal, ratings, chef, singlemeal, CartFactory,AuthService,localStorageFactory) {
-  app.controller('MealController', function ($scope, meal, ratings, chef, singlemeal, AuthService) {
+// app.controller('FileController', function ($scope, meal, ratings, chef, singlemeal, CartFactory,AuthService,localStorageFactory) {
+  // app.controller('FileController', function ($scope, meal, ratings, chef, singlemeal, AuthService) {
+app.controller('FileController', function ($scope, AuthService) {
 
-  $scope.meal = meal;
+  // $scope.meal = meal;
 
-  $scope.ratings = ratings;
+  // $scope.ratings = ratings;
   
-  $scope.chef = chef;
+  // $scope.chef = chef;
 
-  $scope.avgRating = singleMeal.getAvgRating(ratings);
+  // $scope.avgRating = singleFile.getAvgRating(ratings);
   
-  $scope.addMeal = function (meal){
-    CartFactory.addmealToCart(meal);
-  }
+  // $scope.addFile = function (meal){
+  //   CartFactory.addmealToCart(meal);
+  // }
 
     $scope.isLoggedIn = function () {
         return AuthService.isAuthenticated();
