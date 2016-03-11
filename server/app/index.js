@@ -129,11 +129,11 @@ app.get('/writefile',function(req,res,next) {
  
 	//tags.image is the path to the image (only png/jpeg files allowed)
 	var tags = {
-	  title: "Test1title",
-	  artist: "Test1artist",
-	  album: "Test1album",
-	  composer: "Test1composer",
-	  image: "./server/filestoupload/pepper3.jpeg"
+	  title: "Test3title",
+	  artist: "Test3artist",
+	  album: "Test3album",
+	  composer: "Test3composer",
+	  image: "pepper3.jpg"
 	}
 	 
 	var success = nodeID3.write(tags, "./server/filestowrite/jolene2.mp3");  	//Pass tags and filepath
