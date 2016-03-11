@@ -4,6 +4,11 @@ var express = require('express');
 var app = express();
 var fs = require('fs');
 
+var nodeID3 = require('node-id3');
+
+
+// node-id3
+
 module.exports = app;
 
 
@@ -92,15 +97,7 @@ app.get('/makefile', function(req,res,next) {
 
 	  var s3 = new AWS.S3();
 
-	  // s3.upload({
-	  //   Bucket: 'filestack20160310',
-	  //   Key: 'test4.txt',
-	  //   Body: binaryfile
-	  // }).done(function (resp) {
-	  //   console.log('Rolling!');
-	  // },function(err) {
-	  // 	console.log("frownyface:",err)
-	  // });
+
 
 	  var params = {
 	    Bucket: 'filestack20160310',
@@ -116,23 +113,31 @@ app.get('/makefile', function(req,res,next) {
 
 	});
 
+});
 
-	// var s3 = new AWS.S3({
-	// 	params: {
-	// 		Bucket: 'filestack20160310', 
-	// 		Key: 'newkey3.txt',
-	// 		Body: '../../txtfiles/test3.txt'
-	// 	}
-	// });
-	// console.log('working on a building...')
-	// s3.createBucket(function(err) {
-	//   if (err) { console.log("Frowny face:", err); }
-	//   else {
-	//     s3.upload({Body: 'Hello world!'}, function() {
-	//       console.log("Happy face!");
-	//     });
-	//   }
-	// });
+app.get('/downloadfile', function(req,res,next) {
+	var s3 = new AWS.S3();
+	var params = {Bucket: 'filestack20160310', Key: 'carrotslargefile.jpg'};
+	var file = fs.createWriteStream('./server/filesdownloaded/testfile2.jpg');
+	s3.getObject(params)
+	.createReadStream()
+	.pipe(file);		
+	console.log("success");
+});
+
+app.get('/writefile',function(req,res,next) {
+ 
+	//tags.image is the path to the image (only png/jpeg files allowed)
+	var tags = {
+	  title: "Test1title",
+	  artist: "Test1artist",
+	  album: "Test1album",
+	  composer: "Test1composer",
+	  image: "./server/filestoupload/pepper3.jpeg"
+	}
+	 
+	var success = nodeID3.write(tags, "./server/filestowrite/jolene2.mp3");  	//Pass tags and filepath
+	console.log("result of nodeid3 write:",success);										//true or contains error
 })
 
 app.get('/*', function (req, res) {
