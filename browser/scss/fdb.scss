@@ -3,9 +3,6 @@
 /*#main {
 	padding-top: 0;
 }*/
-* {
-	font-family: 'Lora', serif;
-}
 
 [ui-sref]:hover{
   cursor: pointer;
@@ -32,6 +29,9 @@ img {
 h1,h2,h3,h4,h5, .panel-header { font-family: 'Ubuntu', Arial, serif;  } 
 h1 {font-weight: 700;}
 h2 {font-weight: 500;}
+p {
+	font-family: 'Lora', serif;
+}
 
 /* 400,700,500 */
 

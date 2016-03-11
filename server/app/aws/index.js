@@ -13,18 +13,28 @@ module.exports = function(app) {
 	// Set your region for future requests.
 	AWS.config.region = 'us-west-2';
 
+
 	// Create a bucket using bound parameters and put something in it.
 	// Make sure to change the bucket name from "myBucket" to something unique.
 	var s3bucket = new AWS.S3({params: {Bucket: 'filestack20160310'}});
-	s3bucket.createBucket(function() {
-	  var params = {Key: 'myKey', Body: 'Hello!'};
-	  s3bucket.upload(params, function(err, data) {
-	    if (err) {
-	      console.log("Error uploading data: ", err);
-	    } else {
-	      console.log("Successfully uploaded data to myBucket/myKey");
-	    }
-	  });
-	});
+
+	// s3bucket.createBucket(function() {
+
+	//   var params = {Key: 'testfile1.txt'};
+
+	  // s3bucket.upload(params, function(err, data) {
+	  //   if (err) {
+	  //     console.log("Error uploading data: ", err);
+	  //   } else {
+	  //     console.log("Successfully uploaded data to myBucket/myKey");
+	  //   }
+	  // });
+
+	// s3bucket.getObject({ Key: 'testfile1.txt'})
+	// 	.on('success', function(response) {
+	// 	  console.log("Successful get",response.data);
+	// 	})
+	// 	.send();
+	// });
 
 };
