@@ -9,14 +9,15 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/"><img class="img-circle branding pullup" width="90" height="90" alt="Smooshie" src="http://placehold.it/90x90"></a>
+                <!-- <a class="navbar-brand" href="/"><img class="img-circle branding pullup" width="90" height="90" alt="Smooshie" src="http://placehold.it/90x90"></a> -->
+                <a ui-sref="home" class="navbar-brand">audio repo</a>
 
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav" id="main-navigation">
-                    <li><a ui-sref="allSongs">Search files</a></li>
-                    <li><a ui-sref="landing">See recently uploaded files</a></li>
+                    <li><a ui-sref="tracks">Search files</a></li>
+                    <li><a ui-sref="tracks">See recently uploaded files</a></li>
                     <li>
                         <a ng-show="!isLoggedIn()" ui-sref="signup">Open an account</a>
                     </li>
@@ -24,7 +25,7 @@
                 </ul>
                 <ul class="nav navbar-nav pull-right" id="user-navigation">
                     <!-- <li><a ui-sref="checkout">Checkout</a></li> -->
-                    <li ng-if="isLoggedIn()"><a ui-sref="account({id: user._id})">Welcome, {{user.firstName}}!</a></li>
+                    <!-- <li ng-if="isLoggedIn()"><a ui-sref="account({id: user._id})">Welcome, {{user.firstName}}!</a></li> -->
                     <li><a ng-if="isLoggedIn()" ui-sref="upload" class="pull-right">Upload a File</a></li>
                     <li ng-if="isLoggedIn() && isAdmin()"><a ui-sref="admin" class="pull-right">Admin</a></li>
                     <li ng-if="!isLoggedIn()"><a ui-sref="login" class="pull-right">Login</a></li>
