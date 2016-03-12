@@ -12,10 +12,10 @@ var File = mongoose.model('File');
 
 
 router.get('/:id', function(req, res, next){
-	console.log("retrieving file by ID",req.params.id)
+	// console.log("retrieving file by ID",req.params.id)
 	File.findById(req.params.id)
 	.then(function(file) {
-		console.log("found file",file)
+		// console.log("found file",file)
 		res.json(file);
 	},
 	function(err) {
@@ -24,10 +24,10 @@ router.get('/:id', function(req, res, next){
 });
 
 router.get('/', function(req,res,next) {
-	console.log("inside files get")
+	// console.log("inside files get")
 	File.find()
 	.then(function(allfiles) {
-		console.log("success:",allfiles);
+		// console.log("success:",allfiles);
 		// res.status(201).send('completed get request')
 		res.json(allfiles)
 	}, function(err) {
@@ -57,8 +57,9 @@ router.post('/', function(req,res,next) {
 	})
 });
 
-router.get('/artist/:artist', function(req,res,next) {
-	File.getSongsByArtist(req.params.artist)
+router.get('/artist/:name', function(req,res,next) {
+	console.log("getting artist by name",req.params.name)
+	File.getSongsByArtist(req.params.name)
 	.then(function(songs) {
 		console.log('songs:',songs)
 		res.json(songs);

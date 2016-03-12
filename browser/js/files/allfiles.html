@@ -32,21 +32,22 @@
         <!-- /.row -->
 
         <!-- Song One -->
-        <div class="row" ng-repeat="file in allFiles">
+        <div class="row" ng-repeat="file in allFiles" style="margin-bottom: 1em; border-bottom: 1px solid #bf3f1f; padding-bottom: 1em;">
             <div class="col-md-3">
-                <a ui-sref="tracks/{{file._id}}">
+                <!-- <a ui-sref="tracks/{{file._id}}"> -->
+                <a ui-sref="oneFile({id: file._id})">
 <!--                     <img class="img-responsive" src="http://placehold.it/300x300" alt=""> -->
-<img class="img-responsive" ng-src="https://placeholdit.imgix.net/~text?txtsize=24&bg=000000&txtclr=ffffff&txt={{file.album}}&w=300&h=300&fm=png&txttrack=0">
+<img class="img-responsive" ng-src="https://placeholdit.imgix.net/~text?txtsize=24&bg=7fb8a5&txtclr=ffffff&txt={{file.album}}&w=300&h=300&fm=png&txttrack=0">
                 </a>
 
             </div>
             <div class="col-md-9">
-                <h3><a ui-sref="tracks/{{file._id}}">{{file.title}}</a></h3>
+                <h3><a>{{file.title}}</a></h3>
                 <h4 class="pull-right">{{file.genre}}</h4>
                 <h4>{{file.artist}}</h4>
                 <p>{{file.description}}</p>
                 <p>{{file.composer}}</p>
-                <a class="btn btn-primary" ui-sref="tracks/{{file._id}}" target="_blank">Play Song <span class="glyphicon glyphicon-chevron-right"></span></a>
+                <a class="btn btn-primary" ui-sref="oneFile({id: file._id})" target="_blank">Play Song <span class="glyphicon glyphicon-chevron-right"></span></a>
             </div>
         <hr>
         </div>

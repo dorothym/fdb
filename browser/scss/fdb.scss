@@ -3,7 +3,44 @@
 /*#main {
 	padding-top: 0;
 }*/
+body, input, select, option, button {
+	background-color: #f5dbd5;
+	color: #401910;
+}
 
+body {
+	background-image:
+	    linear-gradient(
+	      to bottom,  
+	      #f5dbd5,
+	      #ffffff
+	    );
+}
+ a.btn.btn-primary,
+ input.btn {
+ 	background-color: #de6d35;
+ 	border-color: #de6d35;
+ 	color: #f5dbd5;
+
+
+
+/* 	background-color: #7fb8a5;
+ 	color: #0a3627;
+ 	border-color: #7fb8a5;
+*/
+/* 	background-color: #401910;
+ 	color: #f5dbd5;
+ 	border-color: #401910;
+*/ 
+}
+
+h1, h2, h3, h4, h5 {
+	color: #de6d35;
+}
+
+a {
+	color: #bf3f1f;
+}
 [ui-sref]:hover{
   cursor: pointer;
 }
@@ -26,11 +63,57 @@ img {
 	}
 }
 
-h1,h2,h3,h4,h5, .panel-header { font-family: 'Ubuntu', Arial, serif;  } 
-h1 {font-weight: 700;}
-h2 {font-weight: 500;}
-p {
-	font-family: 'Lora', serif;
+nav, .navbar-inverse {
+	background-color: #3b160a;
+	color: #dba135;
+	font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
+	font-weight: 400;
+}
+
+/*
+
+Comfortaa:400,700,300
+Syncopate:400,700
+Monoton
+Oleo+Script+Swash+Caps:400,700
+
+*/
+
+
+/*
+Arvo:400,400italic,700
+Josefin+Slab:400,600,700,300
+Prata
+Suranna
+*/
+
+.navbar-brand {
+	font-family: 'Monoton', Helvetica, Arial, sans-serif;
+}
+
+a.navbar-brand,
+ul.navbar-nav li a {
+	color: #ffffff !important; 
+	&:hover {
+		color: #9d9d9d !important;
+	}
+}
+
+
+/*h1,h2,h3,h4,h5, .panel-header { font-family: 'Ubuntu', Arial, serif;  } */
+h1 { 
+	font-family: 'Oleo Script Swash Caps', Garamond, Times, serif;
+	font-weight: 700;
+}
+h2 {
+	font-family: 'Oleo Script Swash Caps', Garamond, Times, serif;
+	font-weight: 500;
+}
+h3, h4, h5, button, input, select, option, a.btn {
+	font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
+}
+p  {
+	font-family: 'Arvo', Garamond, Times, serif;
 }
 
 /* 400,700,500 */

@@ -7,6 +7,9 @@ app.config(function ($stateProvider) {
         url:'/tracks/:id',
         controller: 'FileController',
         templateUrl: 'js/files/single.file/file.html',
+        params: {
+          id: null
+        },
         // template: '<h1>hello</h1>'
         // params: {
         //   id: null

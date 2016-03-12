@@ -1,4 +1,3 @@
-// app.controller('AllFilesController', function ($scope, allFiles, CartFactory, AuthService, localStorageFactory) {
 app.controller('AllFilesController', function ($scope, allFiles, AuthService) {
     $scope.genres = ['Old-time','Rock','Folk','Bluegrass','Oldies']
 

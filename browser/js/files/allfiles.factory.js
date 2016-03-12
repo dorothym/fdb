@@ -1,6 +1,6 @@
 'use-strict'
 
-app.factory('FilesFactory', function($http) {
+app.factory('FilesFactory', function($http, $state) {
 	var FilesFactory = {};
 	// var allFiles = [];
 
@@ -11,6 +11,11 @@ app.factory('FilesFactory', function($http) {
 	function setCache(obj){
 		angular.copy(obj.data, cache[obj.type])
 		return cache[obj.type]; 
+	}
+
+	FilesFactory.goToTrack = function(trackid) {
+		console.log("FilesFactory.goToTrack", trackid)
+		// $state.go('oneFile', {id: trackid})
 	}
 
 	FilesFactory.fetchAllFiles = function() {
