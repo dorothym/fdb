@@ -15,10 +15,17 @@ app.controller('UploadCtrl', function ($scope, AuthService, $window, filepickerS
     // $scope.error = null;
     $scope.error = null;
 
-    $scope.getFileUrl = function(myUrl) {
-        $scope.fileUrl = myUrl;
-        console.log("fileUrl is now", $scope.fileUrl)
-    }
+    $scope.pickFile = pickFile;
+
+    $scope.onSuccess = onSuccess;
+
+    $scope.files = JSON.parse($window.localStorage.getItem('files') || '[]');
+
+
+    // $scope.getFileUrl = function(myUrl) {
+    //     $scope.fileUrl = myUrl;
+    //     console.log("fileUrl is now", $scope.fileUrl)
+    // }
 
 
     $scope.isLoggedIn = function () {
@@ -26,29 +33,26 @@ app.controller('UploadCtrl', function ($scope, AuthService, $window, filepickerS
     };
 
 
-    $scope.files = JSON.parse($window.localStorage.getItem('files') || '[]');
-
-    $scope.pickFile = pickFile;
-
-    $scope.onSuccess = onSuccess;
 
     function pickFile(){
         filepickerService.pick(
+            // would like to set another param to write to user-specific bucket
             {mimetype: 'audio/*'},
             onSuccess
         );
     };
 
-
-
     function onSuccess(Blob){
-        console.log("file upload success function")
+        // would like to move this to a factory, when I have time to refactor
+        console.log("get file info in Upload Controller")
         $scope.files.push(Blob);
         $window.localStorage.setItem('files', JSON.stringify($scope.files));
         $scope.upload.filePath = $scope.files[$scope.files.length - 1].url;
+        $scope.upload.s3key = $scope.files[$scope.files.length - 1].key;
         // console.log(localStorageService.get('files'))
         // $scope.upload.filePath = localStorageService.get('files').url;
-        console.log("scope upload path:",$scope.upload.filePath)
+        console.log("scope upload path:",$scope.upload.filePath,"key:", $scope.upload.s3key)
+
     };
 
 });

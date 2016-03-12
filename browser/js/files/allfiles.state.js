@@ -1,8 +1,8 @@
-// meals.js
-
 app.config(function ($stateProvider) {
+    console.log("allfiles state")
+    
     $stateProvider.state('allFiles', {
-        url: '/files',
+        url: '/tracks',
         controller: 'AllFilesController',
         templateUrl: 'js/files/allfiles.html', 
         resolve: {
@@ -11,5 +11,4 @@ app.config(function ($stateProvider) {
             }
         }
     });
-
 });
