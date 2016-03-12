@@ -23,6 +23,11 @@ AWS.config.region = 'us-east-1';
 require('./configure')(app);
 // require('./aws')(app);
 
+// function logger(req,res,next) {
+// 	console.log("we are in??")
+// 	next();
+// }
+
 // Routes that will be accessed via AJAX should be prepended with
 // /api so they are isolated from our GET /* wildcard.
 app.use('/api', require('./routes'));

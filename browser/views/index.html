@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Fiddle tune repository</title>
+    <title>Audio Repo</title>
 
     <link rel="stylesheet" type="text/css" href="/bootstrap/dist/css/bootstrap.css" />
 
@@ -31,18 +31,23 @@
     <script src="/angular-ui-bootstrap/ui-bootstrap-tpls.js"></script>
     <!-- <script src="/angular-payments/lib/angular-payments.js"></script> -->
     <script src="/socket.io-client/socket.io.js"></script>
-    <!-- <script src="/angular-local-storage/dist/angular-local-storage.js"></script> -->
+    <script src="/angular-local-storage/dist/angular-local-storage.js"></script>
 
+<!-- FILEPICKER NATIVE SCRIPT -->
 <!--     <script type="text/javascript" src="//api.filestackapi.com/filestack.js"></script> -->
 
-<script type="text/javascript">
-(function(a){if(window.filepicker){return}var b=a.createElement("script");b.type="text/javascript";b.async=!0;b.src=("https:"===a.location.protocol?"https:":"http:")+"//api.filestackapi.com/filestack.js";var c=a.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c);var d={};d._queue=[];var e="pick,pickMultiple,pickAndStore,read,write,writeUrl,export,convert,store,storeUrl,remove,stat,setKey,constructWidget,makeDropPane".split(",");var f=function(a,b){return function(){b.push([a,arguments])}};for(var g=0;g<e.length;g++){d[e[g]]=f(e[g],d._queue)}window.filepicker=d})(document);
-</script>
+    <script src="/main.js"></script>
 
+<!-- ANGULAR FILEPICKER SCRIPTS -->
+<script src="/filepicker-js/filepicker.js"></script>
+<script src="/angular-filepicker/dist/angular_filepicker.js"></script>
+
+<!-- <script src="https://api.filepicker.io/filestack.js"></script> -->
+
+
+<!-- GOOGLE FONTS -->
 <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,700,500' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Lora:400,700' rel='stylesheet' type='text/css'>
-
-    <script src="/main.js"></script>
 
     <!-- FSG Gulped CSS file -->
 
@@ -84,6 +89,7 @@
     <!-- FILESTACK -->
 <!--     <script type="text/javascript" src="//api.filestackapi.com/filestack.js"></script>
     <input type="filepicker" data-fp-apikey="AncywxfcpTDiis3bzOf9Cz" data-fp-mimetypes="audio/*" data-fp-container="window" data-fp-store-location="s3" data-fp-services="COMPUTER" onchange="alert(event.fpfile.url)"> -->
+
 <!-- <script type="text/javascript" src="//api.filestackapi.com/filestack.js"></script> -->
 
 <!-- <input type="filepicker" data-fp-apikey="AncywxfcpTDiis3bzOf9Cz"
