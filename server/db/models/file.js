@@ -27,7 +27,7 @@ var dietArray = [];
 // {'113':'Tango'},{'114':'Samba'},{'115':'Folklore'},{'116':'Ballad'},{'117':'Power Ballad'},{'118':'Rhythmic Soul'},{'119':'Freestyle'},{'120':'Duet'},{'121':'Punk Rock'},{'122':'Drum Solo'},{'123':'A capella'},{'124':'Euro-House'},{'125':'Dance Hall''},
 // {'126':'Old-Time'}];
 
-var genreArray = ['Old-Time','Rock','Folk','Bluegrass','Oldies']
+var genreArray = ['Old-time','Rock','Folk','Bluegrass','Oldies']
 
 var fileSchema = new Schema({
   title:  { type: String, required: true}, // DC title
@@ -44,6 +44,14 @@ var fileSchema = new Schema({
   recordedBy: { type: String} // DC Contributor?
 
 });
+
+fileSchema.statics.getSongsByArtist = function (artist) {
+  return this.find({performers: artist }).exec();
+}
+
+// fileSchema.statics.getSongsByAlbum = function (myAlbum) {
+//   return this.find({album: myAlbum }).exec();
+// }
 
 // fileSchema.methods.getChef = function () {
 //   return mongoose.model('Chef')
