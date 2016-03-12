@@ -41,8 +41,8 @@ var fileSchema = new Schema({
   file: {type: String},
   composer: { type: String},
   relatedFile: { type: mongoose.Schema.Types.ObjectId, ref: 'File'}, // DC Relation ?
-  recordedBy: { type: String} // DC Contributor?
-
+  recordedBy: { type: String}, // DC Contributor?
+  filePath: {type: String}
 });
 
 fileSchema.statics.getSongsByArtist = function (artist) {

@@ -1,4 +1,4 @@
-app.controller('UploadCtrl', function ($scope, AuthService, $window, filepickerService, UploadFactory) {
+app.controller('UploadCtrl', function ($scope, AuthService, $window, filepickerService, UploadFactory, localStorageService) {
 
     $scope.fileUrl = "";
 
@@ -39,9 +39,16 @@ app.controller('UploadCtrl', function ($scope, AuthService, $window, filepickerS
         );
     };
 
+
+
     function onSuccess(Blob){
+        console.log("file upload success function")
         $scope.files.push(Blob);
         $window.localStorage.setItem('files', JSON.stringify($scope.files));
+        $scope.upload.filePath = $scope.files[$scope.files.length - 1].url;
+        // console.log(localStorageService.get('files'))
+        // $scope.upload.filePath = localStorageService.get('files').url;
+        console.log("scope upload path:",$scope.upload.filePath)
     };
 
 });
