@@ -1,4 +1,17 @@
+<!-- <update-title title="{{ file.title }}"></update-title>
+<update-meta name="description" content="{{file.description}}"></update-meta>
+ --><!-- <meta name="DC.Creator" ng-repeat="performer in file.performers" content="{{performer}}" > -->
+<!-- <meta name="DC.Contributor" content="File contributor"> -->
+<!-- <meta name="DC.Format" content="audio/mpeg"> -->
+<!-- <meta name="DC.Date" content="Date of this recording"> -->
+<!-- <meta name="DC.Type" content="Sound"> -->
+<!-- <meta name="DC.Identifier" content="Database ID"> -->
+
+
 <!-- Page Content -->
+<script>
+// $(".audio").mb_miniPlayer();
+</script>
 <div class="container">
     <h1>{{ file.title }}</h1>
     </div>
@@ -11,7 +24,7 @@
                 <div class="well">
                     <h5>Performers</h5>
                         <ul>
-                            <li ng-repeat="performer in file.performers">
+                            <li ng-repeat="performer in file.performers" 
                               <a ui-sref="files">{{ performer }}</a>
                             </li>
                         </ul>
@@ -28,42 +41,39 @@
                         <h4>Source: {{file.composer }}</h4>
                         <p>{{ file.description }}</p>
                         <div class="panel-body">
-                        <h5>Audio</h5>
-                           <a href="{{file.filePath}}" ">Listen</a>
+                        <h5>audio element test 1</h5>
+                            <p>{{file.filePath}}</p>
+<!--                             <audio id="native-el" control>
+                            <source src="{{file.filePath}}" />
+                            <a href="{{file.filePath}}">Download the audio file</a>
+                            </audio>
+ -->                            <div id="testplayer">
+
+                                <audio controls>
+                                  <!-- <source src="http://www.miaowmusic.com/ogg/Miaow-07-Bubble.ogg" type="audio/ogg"> -->
+                                  <source src="https://cdn.filepicker.io/api/file/MckPdgJgQFSoRSkwApCh">
+                                Your browser does not support the audio element.
+                                </audio>
+                            </div>
                         </div>
                     </div>
 
-<!--                     <div class="ratings">
-                        <p class="pull-right">{{ ratings.length }} reviews</p>
-                        <p ng-show="avgRating>0">
-                          <avg-rating-stars></avg-rating-stars>
-                            {{avgRating}} stars
-                        </p>
-                    </div> -->
                 </div>
-<!-- 
-                <div class="well">
 
-                    <div class="text-left">
-                        <h3>file reviews</h3>
-                    </div>
 
-                    <hr>
+            <div>
+            <h3>Testing mp3 player</h3>
+           
 
-                    <hr>
+<!--             <script>
 
-                    <div class="row" ng-repeat="rating in ratings">
-                        <div class="col-md-12">
-                          <rating-stars></rating-stars>
-                            {{rating.author}}
-                            <span class="pull-right">{{ rating.date | date }}</span>
-                            <p>{{ rating.ratingText }}</p>
-                        </div>
-                    </div>
-                  
-                    <hr>
+                // play('song.mp3').autoplay()
+    
+                // play(['https://cdn.filepicker.io/api/file/X1b9W846R6epO7lfxZhl']).autoplay()
+            </script> -->
 
-                </div> -->
+                <!-- <a id="m1" class="audio {ogg:'http://www.miaowmusic.com/ogg/Miaow-07-Bubble.ogg'}" href="http://www.miaowmusic.com/mp3/Miaow-07-Bubble.mp3">miaowmusic - Bubble (mp3/ogg)</a> 
+                -->
 
             </div>
 
