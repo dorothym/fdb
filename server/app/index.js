@@ -54,24 +54,24 @@ var params = {Key: 'testfile1.txt'};
 app.get('/awstest', function(req,res,next) {
 
 	s3bucket.getObject(params,function(error, data) {
-	  if (error) {
-	    console.log("You screwed up:",error); 
-	  } else {
-	    console.log("Nice job!",data); 
-	    // res.send(data.body)
-	  }
+		if (error) {
+			console.log("You screwed up:",error); 
+		} else {
+			console.log("Nice job!",data); 
+			// res.send(data.body)
+		}
 	});
 })
 
 app.get('/allbuckets', function(req,res,next) {
 	s3bucket.listBuckets(function(err, data) {
-	  if (err) { console.log("Error :-( :-(", err); }
-	  else {
-	    for (var index in data.Buckets) {
-	      var bucket = data.Buckets[index];
-	      console.log("Bucket :-) :-) ", bucket.Name, ' : ', bucket.CreationDate);
-	    }
-	  }
+		if (err) { console.log("Error :-( :-(", err); }
+		else {
+			for (var index in data.Buckets) {
+			var bucket = data.Buckets[index];
+			console.log("Bucket :-) :-) ", bucket.Name, ' : ', bucket.CreationDate);
+			}
+		}
 	});
 });
 
@@ -83,38 +83,35 @@ app.get('/makebucket', function(req,res,next) {
 		}
 	});
 	s3.createBucket(function(err) {
-	  if (err) { console.log("Error!", err); }
-	  else {
-	    s3.upload({Body: 'Hello world!'}, function() {
-	      console.log("Successfully uploaded data");
-	    });
-	  }
+		if (err) { console.log("Error!", err); }
+		else {
+			s3.upload({Body: 'Hello world!'}, function() {
+			console.log("Successfully uploaded data");
+			});
+		}
 	});
 })
 
 app.get('/makefile', function(req,res,next) {
 
-
 	fs.readFile('./server/filestoupload/test5.txt', function (err, data) {
-	  if (err) { throw err; }
+		if (err) { throw err; }
 
-	  var binaryfile = new Buffer(data, 'binary');
+		var binaryfile = new Buffer(data, 'binary');
 
-	  var s3 = new AWS.S3();
+		var s3 = new AWS.S3();
 
-
-
-	  var params = {
-	    Bucket: 'filestack20160310',
-	    Key: 'test5.txt',
-	    Body: binaryfile
+		var params = {
+			Bucket: 'filestack20160310',
+			Key: 'test5.txt',
+			Body: binaryfile
 	  }
 
-	  s3.putObject(params, function (resp) {
-	    console.log('Wheeeeeeeeeee!', resp);
-	  },function(err) {
-	  	console.log("frownyface:",err)
-	  });
+		s3.putObject(params, function (resp) {
+			console.log('Wheeeeeeeeeee!', resp);
+		},function(err) {
+			console.log("frownyface:",err)
+		});
 
 	});
 
@@ -134,11 +131,11 @@ app.get('/writefile',function(req,res,next) {
  
 	//tags.image is the path to the image (only png/jpeg files allowed)
 	var tags = {
-	  title: "Test3title",
-	  artist: "Test3artist",
-	  album: "Test3album",
-	  composer: "Test3composer",
-	  image: "pepper3.jpg"
+		title: "Test3title",
+		artist: "Test3artist",
+		album: "Test3album",
+		composer: "Test3composer",
+		image: "pepper3.jpg"
 	}
 	 
 	var success = nodeID3.write(tags, "./server/filestowrite/jolene2.mp3");  	//Pass tags and filepath
