@@ -41,20 +41,25 @@
                         <h4>Source: {{file.composer }}</h4>
                         <p>{{ file.description }}</p>
                         <div class="panel-body">
-                        <h5>audio element test 1</h5>
+                            <h5>audio element test 1</h5>
                             <p>{{file.filePath}}</p>
 <!--                             <audio id="native-el" control>
                             <source src="{{file.filePath}}" />
                             <a href="{{file.filePath}}">Download the audio file</a>
                             </audio>
  -->                            <div id="testplayer">
+                                    <h5>NG Audio test</h5>
+                                    <button ng-click='audioObject.paused ? audioObject.play() : audioObject.pause()'>Play/Pause</button>
+                                     <!-- <button ng-click='audioObject.restart()'>Stop</button> -->
+                                    <button ng-click='audioObject.muting = !audioObject.muting'>Mute</button>
 
-                                <audio controls>
+                                <!-- <audio controls> -->
                                   <!-- <source src="http://www.miaowmusic.com/ogg/Miaow-07-Bubble.ogg" type="audio/ogg"> -->
-                                  <source src="https://cdn.filepicker.io/api/file/MckPdgJgQFSoRSkwApCh">
-                                Your browser does not support the audio element.
-                                </audio>
-                            </div>
+                                  <!-- <source src="https://cdn.filepicker.io/api/file/MckPdgJgQFSoRSkwApCh"> -->
+                                <!-- Your browser does not support the audio element. -->
+                                <!-- </audio> -->
+                                </div>
+
                         </div>
                     </div>
 
