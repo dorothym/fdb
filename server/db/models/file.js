@@ -27,14 +27,14 @@ var dietArray = [];
 // {'113':'Tango'},{'114':'Samba'},{'115':'Folklore'},{'116':'Ballad'},{'117':'Power Ballad'},{'118':'Rhythmic Soul'},{'119':'Freestyle'},{'120':'Duet'},{'121':'Punk Rock'},{'122':'Drum Solo'},{'123':'A capella'},{'124':'Euro-House'},{'125':'Dance Hall''},
 // {'126':'Old-Time'}];
 
-var genreArray = ['Old-time','Rock','Folk','Bluegrass','Oldies']
+var genreArray = ['Old-time','Rock','Folk','Bluegrass','Oldies', 'Country']
 
 var fileSchema = new Schema({
-  title:  { type: String, required: true}, // DC title
-  performers: {type: [String], required: true}, // DC creator // Creator="Shakespeare, William"
-  album: {type: String, required: true}, // 
-  genre: { type: String, required: true, enum: genreArray},
-  description: { type: String, required: true}, // DC description
+  title:  { type: String}, // DC title
+  performers: {type: [String]}, // DC creator // Creator="Shakespeare, William"
+  album: {type: String}, // 
+  genre: { type: String, enum: genreArray},
+  description: { type: String}, // DC description
   dateRecorded: {type: Date, default: Date.now}, // DC date
   locationRecorded: {type: String},
   image: { type: String },
@@ -50,6 +50,10 @@ var fileSchema = new Schema({
 fileSchema.statics.getSongsByArtist = function (artist) {
   return this.find({performers: artist }).exec();
 }
+
+// fileSchema.methods.updatePerformers = function (trackid) {
+//   return this.constructor.findById(trackid).exec();
+// }
 
 // fileSchema.statics.getSongsByAlbum = function (myAlbum) {
 //   return this.find({album: myAlbum }).exec();

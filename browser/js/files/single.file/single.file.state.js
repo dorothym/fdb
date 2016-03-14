@@ -8,7 +8,8 @@ app.config(function ($stateProvider) {
         controller: 'FileController',
         templateUrl: 'js/files/single.file/file.html',
         params: {
-          id: null
+          id: null,
+          successmessage: null
         },
         // template: '<h1>hello</h1>'
         // params: {

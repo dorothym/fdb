@@ -1,5 +1,35 @@
 app.controller('UploadCtrl', function ($scope, AuthService, $window, filepickerService, UploadFactory, localStorageService) {
 
+ // $scope.choices = [{id: 'choice1'}, {id: 'choice2'}];
+    $scope.performers = [{id: 'performer1'}];
+
+
+    // $scope.performers=[];
+
+    // for (var i = 0; i < $scope.performers.length; i++) {
+    //     uploadform.performers.push($scope.performers[i])
+    // }
+
+
+    $scope.addNewPerformer = function() {
+        var newItemNo = $scope.performers.length+1;
+        console.log("adding new performer field to the form")
+        // $scope.performers.push({'id':'performer'+newItemNo});
+        $scope.performers.push({'id':'performer'+newItemNo});
+    };
+
+ 
+
+    $scope.submitUpload = function(form) { 
+        console.log("inside submitUpload. form data is",form)
+        form.performers = $scope.performers.map(function(current, index) {
+            return $scope.performers[index].name;
+        });
+        console.log("form.performers is", form.performers)
+        UploadFactory.submitUpload(form);
+    }
+
+
     $scope.fileUrl = "";
 
     $scope.log = function() {
@@ -8,7 +38,6 @@ app.controller('UploadCtrl', function ($scope, AuthService, $window, filepickerS
     $scope.successmessage = null;
     
 
-    $scope.submitUpload = UploadFactory.submitUpload;
     // console.log("stateparams:",$stateParams)
 
     $scope.upload = {};

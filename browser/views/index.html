@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en"> 
+<!-- testing class=full -->
+<!-- if you place class full here, the bg image shows on every pge -->
 <head>
     <base href="/" />
     <meta charset="utf-8">
@@ -89,13 +90,16 @@
 
 </head>
 
-<body ng-app="FullstackGeneratedApp"> <!-- from FSG -->
+<body class="full" ng-app="FullstackGeneratedApp">
+<!-- <body ng-class="{full: isHomepage()}" ng-app="FullstackGeneratedApp">  -->
+<!-- from FSG --> 
+<!-- if you place class full here, the bg image shows on every pge -->
     
 <navbar></navbar> <!-- see navbar directive: browser > js > common > directives > navbar -->
 
     <!-- from FSG -->
-    <div id="main" ui-view> 
-
+    <!-- <div id="main" ng-class="{full: $state.includes('home')}" ui-view>  -->
+    <div ui-view>
     </div> <!-- // end #main -->
 
 
@@ -104,7 +108,7 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Generated at Fullstack / Grace Hopper</p>
+                    <div class="pull-right"><p>Generated at Fullstack / Grace Hopper</p></div>
                 </div>
             </div>
         </footer>
