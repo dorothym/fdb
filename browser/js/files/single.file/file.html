@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <h1><span class="text-muted">Audio track detail</span></h1>
-            <div ng-if="successmessage" class="alert alert-success">Success message: {{successmessage}}</div>
+            <div ng-if="successmessage" class="alert alert-success">{{successmessage}}</div>
             <div class="col-md-12">
                 <div class="panel panel-orange">
                 <div class="panel panel-heading"><h2>{{ file.title }}</h2></div>
@@ -19,7 +19,7 @@
                             <h4>Performers</h4>
                             <ul>
                                 <li ng-repeat="performer in file.performers" 
-                                <a ui-sref="files">{{ performer }}</a>
+                                <a ui-sref="songsbyartist({name: performer})">{{ performer }}</a>
                                 </li>
                             </ul>
                             <h4 ng-if="file.description">Description</h4><p ng-if="file.description">{{ file.description }}</p>
@@ -37,8 +37,10 @@
                         </div>
                         <div class="col-md-3">
                             <div class="well">
-                                <h5>Source/Composer</h5><p class="text-muted">{{file.composer }}</p>
+                                <h5 ng-if="file.composer">Source/Composer</h5><p ng-if="file.composer" class="text-muted">{{file.composer }}</p>
                                 <h5>Genre</h5><p class="text-muted">{{file.genre}}</p>
+                                <h5 ng-if="file.recordedBy">Recorded by</h5><p ng-if="file.recordedBy" class="text-muted">{{file.recordedBy }}</p>
+
                             </div>
                         </div>
                     </div>

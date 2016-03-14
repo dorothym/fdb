@@ -3,56 +3,25 @@
 <!-- Page Heading -->
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Recently uploaded files
-            <small>Secondary Text</small>
-        </h1>
+        <h1 style="padding-top: 100px" class="page-header">Browse tracks by {{performer}}</h1>
     </div>
 </div>
 <!-- /.row -->
 
-<!-- Song One -->
-<div class="row" ng-repeat="file in allFiles">
-    <div class="col-md-3">
+<div class="row" ng-repeat="file in performerFiles" style="margin-bottom: 1em; border-bottom: 1px solid #bf3f1f; padding-bottom: 1em;">
+    <!-- <div>File:{{file}}</div> -->
+    <div class="col-lg-3 col-md-12">
         <a ui-sref="tracks/{{file._id}}">
-<!--                     <img class="img-responsive" src="http://placehold.it/300x300" alt=""> -->
-<img class="img-responsive" ng-src="https://placeholdit.imgix.net/~text?txtsize=24&bg=000000&txtclr=ffffff&txt={{file.album}}&w=300&h=300&fm=png&txttrack=0">
+        <img class="img-responsive" ng-src="https://placeholdit.imgix.net/~text?txtsize=24&bg=7fb8a5&txtclr=ffffff&txt={{file.album}}&w=190&h=190&fm=png&txttrack=0">
         </a>
-
     </div>
-    <div class="col-md-9">
-        <h3><a ui-sref="tracks/{{file._id}}">{{file.title}}</a></h3>
-        <h4 class="pull-right">{{file.genre}}</h4>
-        <h4>{{file.artist}}</h4>
-        <p>{{file.description}}</p>
-        <p>{{file.composer}}</p>
-        <a class="btn btn-primary" ui-sref="tracks/{{file._id}}" target="_blank">Play Song <span class="glyphicon glyphicon-chevron-right"></span></a>
-    </div>
-<hr>
-</div>
-<!-- /.row -->
 
-
-<!-- Pagination -->
-<div class="row text-center">
-    <div class="col-lg-12">
-        <ul class="pagination">
-            <li>
-                <a href="#">&laquo;</a>
-            </li>
-            <li class="active">
-                <a href="#">1</a>
-            </li>
-            <li>
-                <a href="#">2</a>
-            </li>
-            <li>
-                <a href="#">3</a>
-            </li>
-            <li>
-                <a href="#">&raquo;</a>
-            </li>
-        </ul>
+    <div class="col-lg-9 col-md-12">
+        <h2><a ui-sref="tracks/{{file._id}}">{{file.title}}</a></h2>
+        <a class="btn btn-primary" ui-sref="oneFile({id: file._id})">Track Details <span class="glyphicon glyphicon-chevron-right"></span></a>
     </div>
 </div>
 <!-- /.row -->
+
+
 

@@ -9,9 +9,12 @@ app.config(function($stateProvider) {
 			songsByPerformer: function($stateParams, PerformerFactory) {
 				return PerformerFactory.getSongsByPerformer($stateParams.name)
 			},
-			performer: function($stateParams) {
+			onePerformer: function($stateParams) {
 				return $stateParams.name;
 			}
+		},
+		params: {
+			name: null
 		}
 	})
 })
