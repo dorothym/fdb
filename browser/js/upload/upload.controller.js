@@ -3,6 +3,8 @@ app.controller('UploadCtrl', function ($scope, AuthService, $window, filepickerS
  // $scope.choices = [{id: 'choice1'}, {id: 'choice2'}];
     $scope.performers = [{id: 'performer1'}];
 
+    $scope.genreArray = ['Old-time','Rock','Folk','Bluegrass','Oldies', 'Country']
+
 
     // $scope.performers=[];
 
