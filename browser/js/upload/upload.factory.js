@@ -3,6 +3,7 @@ app.factory('UploadFactory', function($http, $state) {
 	var UploadFactory = {};
 
 	UploadFactory.submitUpload = function(uploadform) {
+		console.log("inside uploadfactory submitupload")
 		return $http.post('/api/files', uploadform)
 		// .then(function(success) {
 		// 	console.log("successful upload to api/files")
@@ -18,8 +19,10 @@ app.factory('UploadFactory', function($http, $state) {
 			// 	performers: "Diane"
 			// })
 		// })
-		.then(function() {
-			console.log("**** success")
+		.then(function(file) {
+			console.log("success in uploadfactory submitupload", file.data)
+			// res.json(file.data)
+			return file.data;
 		},
 		function(err) {
 			console.error('error...', err)

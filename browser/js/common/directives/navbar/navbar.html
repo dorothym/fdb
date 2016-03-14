@@ -18,6 +18,7 @@
                 <ul class="nav navbar-nav" id="main-navigation">
                     <!-- <li><a ui-sref="tracks">Search files</a></li> -->
                     <li><a ui-sref="allFiles">Browse and search music</a></li>
+                    <li><a ui-sref="upload" class="pull-right">Upload a File</a></li>
 <!--                     <li>
                         <a ng-show="!isLoggedIn()" ui-sref="signup">Open an account</a>
                     </li>
@@ -26,9 +27,9 @@
                 <ul class="nav navbar-nav pull-right" id="user-navigation">
                     <!-- <li><a ui-sref="checkout">Checkout</a></li> -->
                     <!-- <li ng-if="isLoggedIn()"><a ui-sref="account({id: user._id})">Welcome, {{user.firstName}}!</a></li> -->
-                    <li><a ui-sref="upload" class="pull-right">Upload a File</a></li>
                     <li ng-if="isLoggedIn() && isAdmin()"><a ui-sref="admin" class="pull-right">Admin</a></li>
                     <!-- <li ng-if="!isLoggedIn()"><a ui-sref="login" class="pull-right">Login</a></li> -->
+                    <li><a ui-sref="about" class="pull-right">About Audio Repo</a></li>
                     <li ng-if="isLoggedIn()"><a ui-sref="account({id: user._id})">My Account</a></li>
                     <li ng-if="isLoggedIn()"><a href="logout" ng-click="logout()" class="pull-right">Logout</a></li>
                 </ul>

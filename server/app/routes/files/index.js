@@ -73,7 +73,8 @@ router.put('/:id/performers', function (req,res,next) {
 router.post('/', function(req,res,next) {
 	var perfArray = req.body.performers;
 
-	return File.create({
+	console.log("received post request:",req.body)
+	File.create({
 		'title' : req.body.title,
 		'album' : req.body.album,
 		'genre' : req.body.genre,
@@ -84,27 +85,29 @@ router.post('/', function(req,res,next) {
 		// 'file': ,
 		'composer': req.body.composer,
 		// 'relatedFile': ,
-		// 'recordedBy' : ,
+		'recordedBy' : req.body.recordedBy,
 		'filePath': req.body.filePath,
 		's3key': req.body.s3key
 		// 's3bucket': ,
 		})
 	.then(function(newfile) {
 		console.log("inside newfile then",newfile)
-		return File.findByIdAndUpdate(newfile._id,{ $pushAll: { performers: perfArray }}, {new: true})
+		File.findByIdAndUpdate(newfile._id,{ $pushAll: { performers: perfArray }}, {new: true})
 		.then(function(updatedFile) {
 			console.log("updated file:",updatedFile)
+			// return updatedFile;
+			res.json(updatedFile);
 		},
 			function(err) {
 				console.error("problem updating file",err)
 			})
 	})
-	.then(function() {
-		res.send("finished creating and updating file")
-	},
-		function(err) {
-			res.send("error:",err)
-		})
+	// .then(function(newfile) {
+	// 	return newFile;
+	// },
+	// 	function(err) {
+	// 		res.send("error:",err)
+	// 	})
 });
 
 router.get('/artist/:name', function(req,res,next) {

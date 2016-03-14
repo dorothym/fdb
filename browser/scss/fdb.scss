@@ -15,7 +15,7 @@ deep orange: #bf3f1f;
 
 */
 
-body, input, select, option, button {
+body, select, option, button { /* input */
 	background-color: #f5dbd5;
 	color: #401910;
 }
@@ -33,7 +33,7 @@ body {
  	background-color: #de6d35;
  	border-color: #de6d35;
  	color: #f5dbd5;
-
+}
 
 
 /* 	background-color: #7fb8a5;
@@ -44,7 +44,7 @@ body {
  	color: #f5dbd5;
  	border-color: #401910;
 */ 
-}
+
 
 h1, h2, h3, h4, h5 {
 	color: #de6d35;
@@ -119,7 +119,7 @@ h2 {
 	font-family: 'Oleo Script Swash Caps', Garamond, Times, serif;
 	font-weight: 500;
 }
-h3, h4, h5, button, input, select, option, a.btn {
+h3, h4, h5, button, select, option, a.btn { /* input */
 	font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
 }
 p  {
@@ -176,6 +176,15 @@ navbar {
 	font-family: 'Oleo Script Swash Caps', Garamond, Times, serif;
 }
 
+.panel-orange .panel-heading {
+	background-color: #bf3f1f;
+	h2 {
+		color: #fff;
+		font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
+	}
+}
+
+
 .navbar-brand,
 header .headline h1,
 .full .headline h1 {
@@ -195,4 +204,30 @@ footer, footer p {
 
 .text-muted {
 	color: #b08d87;
+}
+
+.btn.btn-lightblue {
+	background-color: #0a3627;
+	border-color: #7fb8a5;
+	color: #fff;
+	&:hover {
+		background-color: #72b09b;
+	}
+}
+
+div.btn {
+	border-color: #de6d35;
+	background-color: #de6d35;
+	color: #fff;
+	a {
+		color: #fff;
+		cursor: pointer;
+		font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
+	}
+	&:hover {
+		background-color: #fff;
+		a {
+			color: #de6d35;
+		}
+	}
 }

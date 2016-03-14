@@ -1,93 +1,51 @@
-<div id="main">
-<!-- <update-title title="{{ file.title }}"></update-title>
-<update-meta name="description" content="{{file.description}}"></update-meta>
- --><!-- <meta name="DC.Creator" ng-repeat="performer in file.performers" content="{{performer}}" > -->
-<!-- <meta name="DC.Contributor" content="File contributor"> -->
-<!-- <meta name="DC.Format" content="audio/mpeg"> -->
-<!-- <meta name="DC.Date" content="Date of this recording"> -->
-<!-- <meta name="DC.Type" content="Sound"> -->
-<!-- <meta name="DC.Identifier" content="Database ID"> -->
-
-
-<!-- Page Content -->
-<script>
-// $(".audio").mb_miniPlayer();
-</script>
-<div class="container">
-    <h1>{{ file.title }}</h1>
-    </div>
-    <div>Confirmation message goes here: {{successmessage}}</div>
+<div id="main" style="margin-top: 50px;">
     <div class="container">
-
         <div class="row">
-
-            <div class="col-md-3">
-                <p class="lead">{{ file.genre }}</p>
-                <div class="well">
-                    <h5>Performers</h5>
-                        <ul>
-                            <li ng-repeat="performer in file.performers" 
-                              <a ui-sref="files">{{ performer }}</a>
-                            </li>
-                        </ul>
-                      
-                </div>
-            </div>
-
-            <div class="col-md-9">
-
-                <div class="thumbnail">
-                    <!-- <img class="img-responsive" src="{{file.photo}}" alt=""> -->
-                    <div class="panel-body">
-                        <h4>Album:{{ file.album}}</h4>
-                        <h4>Source: {{file.composer }}</h4>
-                        <p>{{ file.description }}</p>
-                        <div class="panel-body">
-                            <h5>audio element test 1</h5>
-                            <p>{{file.filePath}}</p>
-<!--                             <audio id="native-el" control>
-                            <source src="{{file.filePath}}" />
-                            <a href="{{file.filePath}}">Download the audio file</a>
-                            </audio>
- -->                            <div id="testplayer">
-                                    <h5>NG Audio test</h5>
-                                    <button ng-click='audioObject.paused ? audioObject.play() : audioObject.pause()'>Play/Pause</button>
-                                     <!-- <button ng-click='audioObject.restart()'>Stop</button> -->
-                                    <button ng-click='audioObject.muting = !audioObject.muting'>Mute</button>
-
-                                <!-- <audio controls> -->
-                                  <!-- <source src="http://www.miaowmusic.com/ogg/Miaow-07-Bubble.ogg" type="audio/ogg"> -->
-                                  <!-- <source src="https://cdn.filepicker.io/api/file/MckPdgJgQFSoRSkwApCh"> -->
-                                <!-- Your browser does not support the audio element. -->
-                                <!-- </audio> -->
-                                </div>
+            <h1><span class="text-muted">Audio track detail</span></h1>
+            <div ng-if="successmessage" class="alert alert-success">Success message: {{successmessage}}</div>
+            <div class="col-md-12">
+                <div class="panel panel-orange">
+                <div class="panel panel-heading"><h2>{{ file.title }}</h2></div>
+                    <div class="panel panel-body">
+                        <div class="col-md-3">
+                            <!-- <h4>Album</h4> -->
+                            <img class="img-responsive" ng-src="https://placeholdit.imgix.net/~text?txtsize=24&bg=7fb8a5&txtclr=ffffff&txt={{file.album}}&w=300&h=300&fm=png&txttrack=0">
+                            <p>Album: {{ file.album}}</p>
+                        </div>
+                        <div class="col-md-3">
+<!--                             <h4>Source</h4><p>{{file.composer }}</p>
+                            <h4>Genre</h4><p>{{file.genre}}</p>
+ -->                            
+                            <h4>Performers</h4>
+                            <ul>
+                                <li ng-repeat="performer in file.performers" 
+                                <a ui-sref="files">{{ performer }}</a>
+                                </li>
+                            </ul>
+                            <h4 ng-if="file.description">Description</h4><p ng-if="file.description">{{ file.description }}</p>
 
                         </div>
+                        <div class="col-md-3">
+                            <div id="player">
+                                <h4>Play audio</h4>
+                                <button class="btn btn-default" ng-click='audioObject.paused ? audioObject.play() : audioObject.pause()'>Play/Pause</button>
+                                 <!-- <button ng-click='audioObject.restart()'>Stop</button> -->
+                                <button  class="btn btn-default" ng-click='audioObject.muting = !audioObject.muting'>Mute</button>
+                                <h4>Download file</h4>
+                                <button class="btn btn-default" ng-click="downloadFile(file)">Download file</button>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="well">
+                                <h5>Source/Composer</h5><p class="text-muted">{{file.composer }}</p>
+                                <h5>Genre</h5><p class="text-muted">{{file.genre}}</p>
+                            </div>
+                        </div>
                     </div>
-
                 </div>
-
-
-            <div>
-            <h3>Testing mp3 player</h3>
-           
-
-<!--             <script>
-
-                // play('song.mp3').autoplay()
-    
-                // play(['https://cdn.filepicker.io/api/file/X1b9W846R6epO7lfxZhl']).autoplay()
-            </script> -->
-
-                <!-- <a id="m1" class="audio {ogg:'http://www.miaowmusic.com/ogg/Miaow-07-Bubble.ogg'}" href="http://www.miaowmusic.com/mp3/Miaow-07-Bubble.mp3">miaowmusic - Bubble (mp3/ogg)</a> 
-                -->
-
             </div>
 
         </div>
     </div>
-
 </div>
-<!-- /.container -->
-
 </div>
