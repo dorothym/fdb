@@ -1,42 +1,38 @@
 <div id="main">
 <!-- Page Content -->
 <div class="container">
-
+<!-- {{foo}} -->
     <div class="row">
-        <div class="col-lg-9">
+        <div class="col-lg-9 col-md-12">
         <h1 class="page-header">Browse files</h1>
-        <!-- /.row -->
-
-
-        <div class="row" ng-repeat="file in allFiles" style="margin-bottom: 1em; border-bottom: 1px solid #bf3f1f; padding-bottom: 1em;">
-            <div class="col-md-3">
+        <!-- <div>allFiles: {{allFiles}}</div> -->
+        <div class="row" ng-repeat="aFile in allFiles" style="margin-bottom: 1em; border-bottom: 1px solid #bf3f1f; padding-bottom: 1em;">
+            <div class="col-lg-3 col-md-12">
                 <!-- <a ui-sref="tracks/{{file._id}}"> -->
-                <a ui-sref="oneFile({id: file._id})">
+                <a ui-sref="oneFile/{{aFile._id}}">
 <!--                     <img class="img-responsive" src="http://placehold.it/300x300" alt=""> -->
-<img class="img-responsive" ng-src="https://placeholdit.imgix.net/~text?txtsize=24&bg=7fb8a5&txtclr=ffffff&txt={{file.album}}&w=190&h=190&fm=png&txttrack=0">
+<img class="img-responsive" ng-src="https://placeholdit.imgix.net/~text?txtsize=24&bg=7fb8a5&txtclr=ffffff&txt={{aFile.album}}&w=190&h=190&fm=png&txttrack=0">
                 </a>
 
             </div>
-            <div class="col-md-9">
-                <div class="col-md-6">
-                <h2><a ui-sref="oneFile({id: file._id})">{{file.title}}</a></h2>
+            <div class="col-lg-9 col-md-12">
+                <div class="col-lg-6">
+                <h2><a ui-sref="oneFile({id: aFile._id})">{{aFile.title}}</a></h2>
                 <!-- <h4 class="pull-right">{{file.genre}}</h4> -->
-                <a class="btn btn-primary" ui-sref="oneFile({id: file._id})" target="_blank">Track Details <span class="glyphicon glyphicon-chevron-right"></span></a>
+                <a class="btn btn-primary" ui-sref="oneFile/{{aFile._id}}" target="_blank">Track Details <span class="glyphicon glyphicon-chevron-right"></span></a>
                 </div>
-                <div class="col-md-6">
+                <div class="col-lg-6">
                 <h3>Performers</h3>
                 <ul>
-                <li ng-repeat="performer in file.performers">{{performer}}</li>
+                <li ng-repeat="performer in aFile.performers"><a ui-sref="songsbyartist({name: performer})">{{performer}}</a></li>
                 </ul>
                 </div>
-<!--                 <p>{{file.description}}</p>
-                <p>{{file.composer}}</p> -->
-                <!-- <h3>Album: {{file.album}}</h3> -->
+
             </div>
         </div>
         </div>
         
-        <div class="col-md-3">
+        <div class="col-lg-3 col-md-12">
             <p class="lead page-header">Filter by Genre</p>
             <div class="form-group">
                 <label>Select:</label>

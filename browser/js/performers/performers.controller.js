@@ -1,5 +1,14 @@
 app.controller('PerformerCtrl', function($scope, songsByPerformer, $stateParams, onePerformer) {
 	// console.log("songs by performer", songsByPerfomer)
-	$scope.allFiles = songsByPerformer;
+
+	$scope.performerFiles = songsByPerformer;
+
 	$scope.performer = onePerformer;
+
+	$scope.goToArtist = function(artistName) {
+		console.log("going to artist",artistName)
+		$state.go('songsbyartist', {
+			name: artistName
+		})
+	}
 });

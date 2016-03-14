@@ -3,16 +3,9 @@ var router = require('express').Router();
 var mongoose = require('mongoose');
 var File = mongoose.model('File');
 
-// console.log("inside routes/files");
-
-// function logger(req,res,next) {
-// 	console.log("we are in??")
-// 	next();
-// }
-
 
 router.get('/:id', function(req, res, next){
-	// console.log("retrieving file by ID",req.params.id)
+	console.log("retrieving file by ID",req.params.id)
 	File.findById(req.params.id)
 	.then(function(file) {
 		// console.log("found file",file)
@@ -24,25 +17,27 @@ router.get('/:id', function(req, res, next){
 });
 
 router.get('/', function(req,res,next) {
-	// console.log("inside files get")
-	File.find()
+	console.log("inside files get")
+	return File.find()
 	.then(function(allfiles) {
-		// console.log("success:",allfiles);
+		console.log("success:",allfiles);
 		// res.status(201).send('completed get request')
 		res.json(allfiles)
+		// return allfiles;
 	}, function(err) {
 		console.error("error: err")
 	});
 });
 
-// router.param('fileId', function (req, res, next, fileId) {
-// 	console.log("inside fileId param")
-//   File.findById(fileId)
-//   .then(function(file){
-//     req.file = file;
-//     next();
-//   })
-// });
+// router.get('/artist/:name', function(req,res,next) {
+// 	console.log("getting artist by name",req.params.name)
+// 	File.getSongsByArtist(req.params.name)
+// 	.then(function(songs) {
+// 		console.log('songs:',songs)
+// 		res.json(songs);
+// 	})
+// })
+
 
 router.put('/:id/performers', function (req,res,next) {
 	var perfArray = ['Dasher','Dancer'];
@@ -60,14 +55,6 @@ router.put('/:id/performers', function (req,res,next) {
 	)
 });
 
-
-	// File.findById(req.params.id)
-	// .then(function(track) {
-	// 	console.log("found track:", track)
-	// 	track.set(req.body)
-	// 	return track.save();
-	// })
-// });
 
 
 router.post('/', function(req,res,next) {
