@@ -3,9 +3,41 @@
 <div class="container">
 
     <div class="row">
+        <div class="col-lg-9">
+        <h1 class="page-header">Browse files</h1>
+        <!-- /.row -->
 
+
+        <div class="row" ng-repeat="file in allFiles" style="margin-bottom: 1em; border-bottom: 1px solid #bf3f1f; padding-bottom: 1em;">
+            <div class="col-md-3">
+                <!-- <a ui-sref="tracks/{{file._id}}"> -->
+                <a ui-sref="oneFile({id: file._id})">
+<!--                     <img class="img-responsive" src="http://placehold.it/300x300" alt=""> -->
+<img class="img-responsive" ng-src="https://placeholdit.imgix.net/~text?txtsize=24&bg=7fb8a5&txtclr=ffffff&txt={{file.album}}&w=190&h=190&fm=png&txttrack=0">
+                </a>
+
+            </div>
+            <div class="col-md-9">
+                <div class="col-md-6">
+                <h2><a ui-sref="oneFile({id: file._id})">{{file.title}}</a></h2>
+                <!-- <h4 class="pull-right">{{file.genre}}</h4> -->
+                <a class="btn btn-primary" ui-sref="oneFile({id: file._id})" target="_blank">Track Details <span class="glyphicon glyphicon-chevron-right"></span></a>
+                </div>
+                <div class="col-md-6">
+                <h3>Performers</h3>
+                <ul>
+                <li ng-repeat="performer in file.performers">{{performer}}</li>
+                </ul>
+                </div>
+<!--                 <p>{{file.description}}</p>
+                <p>{{file.composer}}</p> -->
+                <!-- <h3>Album: {{file.album}}</h3> -->
+            </div>
+        </div>
+        </div>
+        
         <div class="col-md-3">
-            <p class="lead">Browse by Genre</p>
+            <p class="lead page-header">Filter by Genre</p>
             <div class="form-group">
                 <label>Select:</label>
                 <select class="form-control"  ng-model="genre">
@@ -16,68 +48,6 @@
             <input type="submit" class="btn" value="Submit"  ng-click="updateFiles()">
             <input type="submit" class="btn" value="Reset"  ng-click="resetFiles()">
         </div> 
-
-
-
-    <!-- Page Content -->
-    <div class="container">
-
-        <!-- Page Heading -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">Recently uploaded files
-                    <small>Secondary Text</small>
-                </h1>
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <!-- Song One -->
-        <div class="row" ng-repeat="file in allFiles" style="margin-bottom: 1em; border-bottom: 1px solid #bf3f1f; padding-bottom: 1em;">
-            <div class="col-md-3">
-                <!-- <a ui-sref="tracks/{{file._id}}"> -->
-                <a ui-sref="oneFile({id: file._id})">
-<!--                     <img class="img-responsive" src="http://placehold.it/300x300" alt=""> -->
-<img class="img-responsive" ng-src="https://placeholdit.imgix.net/~text?txtsize=24&bg=7fb8a5&txtclr=ffffff&txt={{file.album}}&w=300&h=300&fm=png&txttrack=0">
-                </a>
-
-            </div>
-            <div class="col-md-9">
-                <h3><a ui-sref="oneFile({id: file._id})">{{file.title}}</a></h3>
-                <h4 class="pull-right">{{file.genre}}</h4>
-                <h4>{{file.artist}}</h4>
-                <p>{{file.description}}</p>
-                <p>{{file.composer}}</p>
-                <a class="btn btn-primary" ui-sref="oneFile({id: file._id})" target="_blank">Play Song <span class="glyphicon glyphicon-chevron-right"></span></a>
-            </div>
-        <hr>
-        </div>
-        <!-- /.row -->
-
-
-        <!-- Pagination -->
-        <div class="row text-center">
-            <div class="col-lg-12">
-                <ul class="pagination">
-                    <li>
-                        <a href="#">&laquo;</a>
-                    </li>
-                    <li class="active">
-                        <a href="#">1</a>
-                    </li>
-                    <li>
-                        <a href="#">2</a>
-                    </li>
-                    <li>
-                        <a href="#">3</a>
-                    </li>
-                    <li>
-                        <a href="#">&raquo;</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!-- /.row -->
 
     </div> <!-- class="row" -->
 
