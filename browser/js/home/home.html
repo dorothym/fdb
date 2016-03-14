@@ -1,53 +1,84 @@
-    
-    <!-- header may need to be moved out of here in order to be full width -->
-    <!-- Full Width Image Header -->
-    <header class="header-image">
-        <div class="headline">
-            <div class="container">
-                <h1>Audio repo</h1>
-                <h3>By musicians, for musicians</h3>
-            </div>
+<link rel="stylesheet" href="scss/startbootstrap/full.scss">
+<style>
+body { margin-top: 50px; }
+
+.full {
+    background: url('images/banjo1920x1280.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+h1 a:hover {
+	text-decoration: none;
+}
+
+
+/*neeeeoooon*/
+
+h1.test {
+  text-align: center;
+  font-size: 7em;
+  margin: 20px 0 20px 0;
+}
+
+a {
+  text-decoration: none;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+
+h1.test a:hover {
+  color: #e8694d;
+  font-family: Monoton;
+  -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon1 1.5s ease-in-out infinite alternate;
+  animation: neon1 1.5s ease-in-out infinite alternate;
+}
+
+h1.test a {
+  color: #bf3f1f;
+  -webkit-animation: none;
+  -moz-animation: none;
+  animation: none;
+}
+
+@-webkit-keyframes neon1 {
+  from {
+    text-shadow: 0 0 1px #e8694d, 0 0 2px #e8694d, 0 0 3px #e8694d, 0 0 4px #bf3f1f, 0 0 7px #bf3f1f, 0 0 8px #bf3f1f, 0 0 10px #bf3f1f, 0 0 12px #bf3f1f;
+  }
+  to {
+    text-shadow: 0 0 5px #e8694d, 0 0 1px #e8694d, 0 0 2px #e8694d, 0 0 12px #bf3f1f, 0 0 3px #bf3f1f, 0 0 4px #bf3f1f, 0 0 5px #bf3f1f, 0 0 7px #bf3f1f;
+  }
+}
+@-moz-keyframes neon1 {
+  from {
+    text-shadow: 0 0 1px #e8694d, 0 0 2px #e8694d, 0 0 3px #e8694d, 0 0 4px #bf3f1f, 0 0 7px #bf3f1f, 0 0 8px #bf3f1f, 0 0 10px #bf3f1f, 0 0 12px #bf3f1f;
+  }
+  to {
+    text-shadow: 0 0 5px #e8694d, 0 0 1px #e8694d, 0 0 2px #e8694d, 0 0 12px #bf3f1f, 0 0 3px #bf3f1f, 0 0 4px #bf3f1f, 0 0 5px #bf3f1f, 0 0 7px #bf3f1f;
+  }
+}
+
+@keyframes neon1 {
+  from {
+    text-shadow: 0 0 1px #e8694d, 0 0 2px #e8694d, 0 0 3px #e8694d, 0 0 4px #bf3f1f, 0 0 7px #bf3f1f, 0 0 8px #bf3f1f, 0 0 10px #bf3f1f, 0 0 12px #bf3f1f;
+  }
+  to {
+    text-shadow: 0 0 5px #e8694d, 0 0 1px #e8694d, 0 0 2px #e8694d, 0 0 12px #bf3f1f, 0 0 3px #bf3f1f, 0 0 4px #bf3f1f, 0 0 5px #bf3f1f, 0 0 7px #bf3f1f;
+  }
+}
+
+
+
+</style>
+<div>
+    <div class="headline"  style="text-align: center">
+        <div class="container">
+            <h1 class="test"><a ui-sref="about">Audio Repo</a></h1>
+            <h3>By musicians, for musicians</h3>
         </div>
-    </header> 
-
-
-    <!-- Page Content -->
-    <div class="container">
-
-        <hr class="featurette-divider">
-
-        <!-- First Featurette -->
-        <div class="featurette" id="about">
-            <a href="meal-list.html"><img class="featurette-image img-circle img-responsive pull-right" src="http://placehold.it/500x500"></a>
-            <h2 class="featurette-heading">Audio Repo
-                <span class="text-muted">By musicians, for musicians</span>
-            </h2>
-            <p class="lead"><a ui-sref="allMeals">Vestibulum id ligula porta felis euismod</a></p>
-        </div>
-
-        <hr class="featurette-divider">
-
-        <!-- Second Featurette -->
-        <div class="featurette" id="services">
-            <img class="featurette-image img-circle img-responsive pull-left" src="http://placehold.it/500x500">
-            <h2 class="featurette-heading">Vatis inem?
-                <span class="text-muted"><a ui-sref="signup({isChef : true})">Sivilli si ergo</a></span>
-            </h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla.  Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-        </div>
-
-        <hr class="featurette-divider">
-
-        <!-- Third Featurette -->
-        <div class="featurette" id="contact">
-            <img class="featurette-image img-circle img-responsive pull-right" src="http://placehold.it/500x500">
-            <h2 class="featurette-heading">Fortibus in ero
-                <span class="text-muted">O no villi, demis trucs</span>
-            </h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-        </div>
-
-        <hr class="featurette-divider">
-
     </div>
-    <!-- /.container -->
+</div>

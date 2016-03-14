@@ -3,6 +3,18 @@
 /*#main {
 	padding-top: 0;
 }*/
+
+/* colors
+
+light pink background: #f5dbd5;
+brown navbar: #401910;
+peachy orange: #de6d35;
+light blue-green: #7fb8a5;
+dark green: #0a3627;
+deep orange: #bf3f1f;
+
+*/
+
 body, input, select, option, button {
 	background-color: #f5dbd5;
 	color: #401910;
@@ -87,9 +99,7 @@ Prata
 Suranna
 */
 
-.navbar-brand {
-	font-family: 'Monoton', Helvetica, Arial, sans-serif;
-}
+
 
 a.navbar-brand,
 ul.navbar-nav li a {
@@ -148,4 +158,41 @@ light blue: 65c9c8;
 	&:hover {
 		background-color: purple !important;
 	}
+}
+
+navbar {
+	border-bottom: none;
+}
+
+
+.headline h1,
+.headline h3 {
+	background-color: transparent;
+	background: rgba(255, 255, 255, 0.1);
+	color: #cecece; /* blueish: #7fb3b8; */ /* yellowish: #dba63b; */
+}
+
+.headline h3 {
+	font-family: 'Oleo Script Swash Caps', Garamond, Times, serif;
+}
+
+.navbar-brand,
+header .headline h1,
+.full .headline h1 {
+	/*color: #7fb3b8;*/
+	/*color: #dba63b;*/
+	color: white;
+	font-family: 'Monoton', Helvetica, Arial, sans-serif;
+}
+
+footer, footer p {
+	color: #fdfdfd;
+}
+
+/*#main {
+	padding-top: 120px;
+}*/
+
+.text-muted {
+	color: #b08d87;
 }

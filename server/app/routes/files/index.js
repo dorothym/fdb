@@ -44,17 +44,67 @@ router.get('/', function(req,res,next) {
 //   })
 // });
 
+router.put('/:id/performers', function (req,res,next) {
+	var perfArray = ['Dasher','Dancer'];
+	File.findByIdAndUpdate(
+		req.params.id, 
+		{ $pushAll: { performers: perfArray }},
+		{new: true}	
+	)
+	.then(function() {
+		console.log("success")
+		},
+		function(err) {
+			console.error("error:",err)
+		}
+	)
+});
+
+
+	// File.findById(req.params.id)
+	// .then(function(track) {
+	// 	console.log("found track:", track)
+	// 	track.set(req.body)
+	// 	return track.save();
+	// })
+// });
 
 
 router.post('/', function(req,res,next) {
-	// console.log("inside files post")
-	File.create(req.body)
+	var perfArray = req.body.performers;
+
+	return File.create({
+		'title' : req.body.title,
+		'album' : req.body.album,
+		'genre' : req.body.genre,
+		'description' : req.body.description,
+		// 'dateRecorded': ,
+		// 'locationRecorded': ,
+		// 'image': ,
+		// 'file': ,
+		'composer': req.body.composer,
+		// 'relatedFile': ,
+		// 'recordedBy' : ,
+		'filePath': req.body.filePath,
+		's3key': req.body.s3key
+		// 's3bucket': ,
+		})
 	.then(function(newfile) {
-		// console.log("success:",newfile);
-		res.status(201).send('completed post request')
-	}, function(err) {
-		console.error("Problem POSTing",err)
+		console.log("inside newfile then",newfile)
+		return File.findByIdAndUpdate(newfile._id,{ $pushAll: { performers: perfArray }}, {new: true})
+		.then(function(updatedFile) {
+			console.log("updated file:",updatedFile)
+		},
+			function(err) {
+				console.error("problem updating file",err)
+			})
 	})
+	.then(function() {
+		res.send("finished creating and updating file")
+	},
+		function(err) {
+			res.send("error:",err)
+		})
 });
 
 router.get('/artist/:name', function(req,res,next) {

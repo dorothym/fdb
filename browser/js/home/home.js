@@ -10,6 +10,12 @@ app.config(function ($stateProvider) {
 // app.controller('homeCtrl',function($scope,localStorageFactory,CartFactory,AuthService) {
 app.controller('homeCtrl',function($scope,AuthService) {
 
+	// $rootScope.$state = $state;
+
+	// $rootScope.isHomepage = function () {
+	// 	return true;
+	// }
+
 	// console.log("in homepage controller")
 
 	$scope.isLoggedIn = function () {
