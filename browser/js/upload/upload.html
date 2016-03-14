@@ -14,7 +14,10 @@
                     <div class="panel-body">
                         <div class="form-group">
                             <label>File to upload:</label>
-                             <div class="btn"><a ng-click="pickFile()" data-fp-store-location="s3">Select File</a></div>
+                             <div class="btn" ng-click="pickFile()" ><a data-fp-store-location="s3">Select File</a></div>
+                        </div>
+                        <div ng-if="uploadsuccess" class="alert alert-success">
+                        {{uploadsuccess}}
                         </div>
                     </div>
                 </div>
@@ -27,7 +30,7 @@
                     <div class="panel-body">
                         <div class="form-group">
                             <label for="title">Track title</label>
-                            <input type="text" ng-model="upload.title" class="form-control" id="title" placeholder="Enter song title">
+                            <input ngRequired="true" type="text" ng-model="upload.title" class="form-control" id="title" placeholder="Enter song title">
                         </div>
                         <label for="input">Performer</label>
                         <div class="form-group" data-ng-repeat="performer in performers">
@@ -36,7 +39,7 @@
                             <!-- </div> -->
                         </div>
                         <div class="form-group">
-                            <div class='btn'><a ng-click="addNewPerformer()">Add another performer</a></div>
+                            <div class='btn' ng-click="addNewPerformer()"><a>Add another performer</a></div>
                         </div>
                         <div class="form-group">
                             <label for="album">Album, Concert, Festival, or Event</label>
@@ -56,10 +59,10 @@
                             <label for="description">Description</label>
                             <textarea rows="4" ng-model="upload.description" class="form-control" id="description" placeholder="Enter description"></textarea>
                         </div>
-                        <div class="form-group">
+<!--                         <div class="form-group">
                             <label for="picture">Image URL:</label>
                             <input type="text" ng-model="upload.picture" class="form-control" id="picture" placeholder="Enter URL beginning with http://">
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div> <!-- close column -->
@@ -70,7 +73,7 @@
                     <div class="panel panel-body">
                         <div class="form-group">
                             <label for="upload-username">Your name</label>
-                            <input type="username" ng-model="upload.recordedBy" class="form-control" id="upload-username" placeholder="username">
+                            <input ngRequired="true" type="username" ng-model="upload.recordedBy" class="form-control" id="upload-username">
                         </div>
                         <button type="submit" class="btn btn-lightblue">Upload file!</button>
                         <button type="reset" class="btn btn-default">Reset</button>
