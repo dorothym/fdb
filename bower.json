@@ -1,0 +1,24 @@
+{
+  "name": "Stackathon-AudioRepo",
+  "description": "Stackathon project - Dorothy Moore",
+  "main": "server/start.js",
+  "authors": [
+    "dorothym <dorothy.v.moore@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/dorothym/stackathon",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-audio": "~1.7.1",
+    "angular-filepicker": "~1.1.4",
+    "angular-update-meta": "~1.9.0"
+  }
+}
