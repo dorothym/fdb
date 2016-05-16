@@ -33,6 +33,9 @@ body {
  	background-color: #de6d35;
  	border-color: #de6d35;
  	color: #f5dbd5;
+ 	&:hover {
+ 		color: #333;
+ 	}
 }
 
 
