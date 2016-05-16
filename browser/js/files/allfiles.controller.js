@@ -1,7 +1,6 @@
 app.controller('AllFilesController', function ($scope, allFiles, AuthService) {
 
-    $scope.foo = "bar"
-    $scope.genres = ['Old-time','Rock','Folk','Bluegrass','Oldies']
+    $scope.genres = ['Old-time','Rock','Folk','Bluegrass','Country']
 
     $scope.allFiles = allFiles;
         
@@ -14,9 +13,7 @@ app.controller('AllFilesController', function ($scope, allFiles, AuthService) {
         return AuthService.isAuthenticated();
     };
 
-
     $scope.goToArtist = function(artistName) {
-        console.log("going to artist",artistName)
         $state.go('songsbyartist', {
             name: artistName
         })
