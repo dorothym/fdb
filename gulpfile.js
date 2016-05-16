@@ -96,6 +96,20 @@ gulp.task('buildCSS', function () {
         .pipe(gulp.dest('./public'));
 });
 
+gulp.task('buildHomeCSS', function () {
+
+    var sassCompilation = sass();
+    sassCompilation.on('error', console.error.bind(console));
+
+    return gulp.src('./browser/scss/home.scss')
+        .pipe(plumber({
+            errorHandler: notify.onError('SASS processing failed! Check your gulp process.')
+        }))
+        .pipe(sassCompilation)
+        .pipe(rename('home.css'))
+        .pipe(gulp.dest('./public'));
+});
+
 // Production tasks
 // --------------------------------------------------------------
 
@@ -116,16 +130,16 @@ gulp.task('buildJSProduction', function () {
         .pipe(gulp.dest('./public'));
 });
 
-gulp.task('buildProduction', ['buildCSSProduction', 'buildJSProduction']);
+gulp.task('buildProduction', ['buildCSSProduction', 'buildHomeCSS', 'buildJSProduction']);
 
 // Composed tasks
 // --------------------------------------------------------------
 
 gulp.task('build', function () {
     if (process.env.NODE_ENV === 'production') {
-        runSeq(['buildJSProduction', 'buildCSSProduction']);
+        runSeq(['buildJSProduction', 'buildCSSProduction', 'buildHomeCSS']);
     } else {
-        runSeq(['buildJS', 'buildCSS']);
+        runSeq(['buildJS', 'buildCSS', 'buildHomeCSS']);
     }
 });
 
@@ -140,7 +154,7 @@ gulp.task('default', function () {
 
     // Run when anything inside of browser/scss changes.
     gulp.watch('browser/scss/**', function () {
-        runSeq('buildCSS', 'reloadCSS');
+        runSeq('buildCSS', 'buildHomeCSS', 'reloadCSS');
     });
 
     gulp.watch('server/**/*.js', ['lintJS']);
