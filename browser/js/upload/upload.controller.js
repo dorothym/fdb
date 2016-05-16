@@ -1,6 +1,6 @@
 app.controller('UploadCtrl', function ($scope, AuthService, $window, filepickerService, UploadFactory, localStorageService, $state) {
 
-    $scope.genreArray = ['Old-time','Rock','Folk','Bluegrass','Oldies', 'Country']
+    $scope.genreArray = ['Old-time','Rock','Folk','Bluegrass','Country']
 
     $scope.log = function() {
             // uploadFactory.upload()
@@ -28,14 +28,11 @@ app.controller('UploadCtrl', function ($scope, AuthService, $window, filepickerS
     };
 
     $scope.submitUpload = function(form) { 
-        console.log("inside submitUpload. form data is",form)
         form.performers = $scope.performers.map(function(current, index) {
             return $scope.performers[index].name;
         });
-        // console.log("form.performers is", form.performers)
         UploadFactory.submitUpload(form)
         .then(function(newfile) {
-            console.log("newfile success", newfile);
             $state.go('oneFile', {
                 successmessage: 'File uploaded successfully!',
                 id: newfile._id
@@ -60,14 +57,12 @@ app.controller('UploadCtrl', function ($scope, AuthService, $window, filepickerS
     function onSuccess(Blob){
         // would like to move this to a factory, when I have time to refactor
 
-        // console.log("get file info in Upload Controller")
         $scope.files.push(Blob);
         $window.localStorage.setItem('files', JSON.stringify($scope.files));
         $scope.upload.filePath = $scope.files[$scope.files.length - 1].url;
         $scope.upload.s3key = $scope.files[$scope.files.length - 1].key;
         $scope.uploadsuccess = 'File upload successful!';
         $scope.$digest();
-        // console.log(localStorageService.get('files'))
         // $scope.upload.filePath = localStorageService.get('files').url;
         // console.log("scope upload path:",$scope.upload.filePath,"key:", $scope.upload.s3key)
 
