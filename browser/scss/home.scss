@@ -1,0 +1,77 @@
+/*!
+ * Start Bootstrap - Full HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+ 
+body { margin-top: 50px; }
+
+.full {
+    background: url('banjo1920x1280.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+h1 a:hover {
+	text-decoration: none;
+}
+.headline {
+	text-align: center;
+}
+/* neon */
+
+h1.test {
+  text-align: center;
+  font-size: 7em;
+  margin: 20px 0 20px 0;
+}
+
+a {
+  text-decoration: none;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+
+h1.test a:hover {
+  color: #e8694d;
+  font-family: Monoton;
+  -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon1 1.5s ease-in-out infinite alternate;
+  animation: neon1 1.5s ease-in-out infinite alternate;
+}
+
+h1.test a {
+  color: #bf3f1f;
+  -webkit-animation: none;
+  -moz-animation: none;
+  animation: none;
+}
+
+@-webkit-keyframes neon1 {
+  from {
+    text-shadow: 0 0 1px #e8694d, 0 0 2px #e8694d, 0 0 3px #e8694d, 0 0 4px #bf3f1f, 0 0 7px #bf3f1f, 0 0 8px #bf3f1f, 0 0 10px #bf3f1f, 0 0 12px #bf3f1f;
+  }
+  to {
+    text-shadow: 0 0 5px #e8694d, 0 0 1px #e8694d, 0 0 2px #e8694d, 0 0 12px #bf3f1f, 0 0 3px #bf3f1f, 0 0 4px #bf3f1f, 0 0 5px #bf3f1f, 0 0 7px #bf3f1f;
+  }
+}
+@-moz-keyframes neon1 {
+  from {
+    text-shadow: 0 0 1px #e8694d, 0 0 2px #e8694d, 0 0 3px #e8694d, 0 0 4px #bf3f1f, 0 0 7px #bf3f1f, 0 0 8px #bf3f1f, 0 0 10px #bf3f1f, 0 0 12px #bf3f1f;
+  }
+  to {
+    text-shadow: 0 0 5px #e8694d, 0 0 1px #e8694d, 0 0 2px #e8694d, 0 0 12px #bf3f1f, 0 0 3px #bf3f1f, 0 0 4px #bf3f1f, 0 0 5px #bf3f1f, 0 0 7px #bf3f1f;
+  }
+}
+
+@keyframes neon1 {
+  from {
+    text-shadow: 0 0 1px #e8694d, 0 0 2px #e8694d, 0 0 3px #e8694d, 0 0 4px #bf3f1f, 0 0 7px #bf3f1f, 0 0 8px #bf3f1f, 0 0 10px #bf3f1f, 0 0 12px #bf3f1f;
+  }
+  to {
+    text-shadow: 0 0 5px #e8694d, 0 0 1px #e8694d, 0 0 2px #e8694d, 0 0 12px #bf3f1f, 0 0 3px #bf3f1f, 0 0 4px #bf3f1f, 0 0 5px #bf3f1f, 0 0 7px #bf3f1f;
+  }
+}

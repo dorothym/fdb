@@ -1,5 +1,5 @@
 'use strict';
-window.app = angular.module('FullstackGeneratedApp', ['fsaPreBuilt', 'ui.router', 'ui.bootstrap', 'ngAnimate', 'angular-filepicker','LocalStorageModule','updateMeta','ngAudio']);
+window.app = angular.module('AudioRepoApp', ['fsaPreBuilt', 'ui.router', 'ui.bootstrap', 'ngAnimate', 'angular-filepicker','LocalStorageModule','updateMeta','ngAudio']);
 
 app.config(function (filepickerProvider) {
     filepickerProvider.setKey('AncywxfcpTDiis3bzOf9Cz');
