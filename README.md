@@ -26,21 +26,21 @@
 
 ## Feature backlog:
  
+* remove api key from code
+* allow for upload of images
 * Search and filter fields on Browse page
 * upload form validation
 * tag file on download
-* create Artist page and hook up Artist state
 * write metadata on download
+* create Artist page and hook up Artist state
 * Browse music page layout
 * sort browse page results in descending order
-* allow for upload of images
 * progress bar for audio player
 * add audio player to Browse Music page
+* hook up login and signup functionality
 * rename files on upload?
 * separate bucket for each user?
-* hook up login and signup functionality
 * add credits for bootstrap theme pages
-* remove api key from code
 * Allow creation of local account, Google-linked account or FB-linked account
 * Request removal of a file
 * allow toggling between private/public paths
